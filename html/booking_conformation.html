@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking conformation</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Outfit:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="booking_conformation.css">
+</head>
+<body>
+    <main class="main-container">
+        <div class="container-fluid px-5">
+            <div class="content-wrapper">
+                <section class="flight-options-section">
+                    <div class="filter-checkboxes mb-4">
+                        <div class="form-check form-check-inline filter-checkbox">
+                            <input class="form-check-input" type="checkbox" id="cabinBag">
+                            <label class="form-check-label" for="cabinBag">Cabin Bag</label>
+                        </div>
+                        <div class="form-check form-check-inline filter-checkbox">
+                            <input class="form-check-input" type="checkbox" id="checkedBag">
+                            <label class="form-check-label" for="checkedBag">Checked Bag</label>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="flight-providers">
+
+                                <div class="card provider-card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <div class="provider-logo-section">
+                                                <img src="../images/conformation page/gobigo.png" alt="Goibbibo" class="provider-logo">
+                                                <h3 class="provider-name">Goibbibo</h3>
+                                                <div class="provider-rating">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="../images/conformation page/Star 1.png" alt="Star" class="star-icon">
+                                                        <span class="rating-value">4.8/5</span>
+                                                    </div>
+                                                    <span class="rating-count">16,391</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <div class="provider-features">
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/caller.png" alt="Support" class="feature-icon">
+                                                        <p class="feature-text">24/7 customer support</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/discount.png" alt="Discount" class="feature-icon">
+                                                        <p class="feature-text">Additional discounts of up to 20% may be available using Exclusive code MMTSKYSUPER (for international flights only)*</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/terms.png" alt="Terms" class="feature-icon">
+                                                        <p class="feature-text">Partner's Terms and Conditions applicable.</p>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-link more-fares-btn">More Fares</button>
+
+                                                <div class="baggage-info">
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/include-bags.png" alt="Cabin Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/Trolly bag.png" alt="Checked Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="vr"></div>
+
+                                            <div class="pricing-section">
+                                                <div class="price-details">
+                                                    <span class="total-price">Total ₹15,220</span>
+                                                    <div class="discounted-price">
+                                                        <span class="currency">₹ </span>
+                                                        <span class="price-value">14,783</span>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-primary select-btn" onclick="goToPassengerDetails()">Select</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card provider-card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <div class="provider-logo-section">
+                                                <img src="../images/conformation page/Makemytrip_logo 1.png" alt="Makemytrip" class="provider-logo">
+                                                <h3 class="provider-name">Makemytrip</h3>
+                                                <div class="provider-rating">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="../images/conformation page/Star 1.png" alt="Star" class="star-icon">
+                                                        <span class="rating-value">4.8/5</span>
+                                                    </div>
+                                                    <span class="rating-count">16,391</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <div class="provider-features">
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/caller.png" alt="Support" class="feature-icon">
+                                                        <p class="feature-text">24/7 customer support</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/discount.png" alt="Discount" class="feature-icon">
+                                                        <p class="feature-text">Additional discounts of up to 20% may be available using Exclusive code MMTSKYSUPER (for international flights only)*</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/terms.png" alt="Terms" class="feature-icon">
+                                                        <p class="feature-text">Partner's Terms and Conditions applicable.</p>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-link more-fares-btn">More Fares</button>
+
+                                                <div class="baggage-info">
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/include-bags.png" alt="Cabin Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/Trolly bag.png" alt="Checked Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="vr"></div>
+
+                                            <div class="pricing-section">
+                                                <div class="price-details">
+                                                    <span class="total-price">Total ₹15,220</span>
+                                                    <div class="discounted-price">
+                                                        <span class="currency">₹ </span>
+                                                        <span class="price-value">14,783</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary select-btn" onclick="goToBookingContinue()" type="button">Select</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card provider-card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <div class="provider-logo-section">
+                                                <img src="../images/conformation page/Yatra_logo.svg (1) 1.png" alt="Yatra.com" class="provider-logo">
+                                                <h3 class="provider-name">Yatra.com</h3>
+                                                <div class="provider-rating">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="../images/conformation page/Star 1.png" alt="Star" class="star-icon">
+                                                        <span class="rating-value">4.8/5</span>
+                                                    </div>
+                                                    <span class="rating-count">16,391</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <div class="provider-features">
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/caller.png" alt="Support" class="feature-icon">
+                                                        <p class="feature-text">24/7 customer support</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/discount.png" alt="Discount" class="feature-icon">
+                                                        <p class="feature-text">Additional discounts of up to 20% may be available using Exclusive code MMTSKYSUPER (for international flights only)*</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/terms.png" alt="Terms" class="feature-icon">
+                                                        <p class="feature-text">Partner's Terms and Conditions applicable.</p>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-link more-fares-btn">More Fares</button>
+
+                                                <div class="baggage-info">
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/include-bags.png" alt="Cabin Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/Trolly bag.png" alt="Checked Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="vr"></div>
+
+                                            <div class="pricing-section">
+                                                <div class="price-details">
+                                                    <span class="total-price">Total ₹15,220</span>
+                                                    <div class="discounted-price">
+                                                        <span class="currency">₹ </span>
+                                                        <span class="price-value">14,783</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary select-btn" onclick="goToBookingContinue()" type="button">Select</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card provider-card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center gap-4">
+                                            <div class="provider-logo-section">
+                                                <img src="../images/conformation page/gobigo.png" alt="Goibbibo" class="provider-logo">
+                                                <h3 class="provider-name">Goibbibo</h3>
+                                                <div class="provider-rating">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <img src="../images/conformation page/Star 1.png" alt="Star" class="star-icon">
+                                                        <span class="rating-value">4.8/5</span>
+                                                    </div>
+                                                    <span class="rating-count">16,391</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="flex-grow-1">
+                                                <div class="provider-features">
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/caller.png" alt="Support" class="feature-icon">
+                                                        <p class="feature-text">24/7 customer support</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/discount.png" alt="Discount" class="feature-icon">
+                                                        <p class="feature-text">Additional discounts of up to 20% may be available using Exclusive code MMTSKYSUPER (for international flights only)*</p>
+                                                    </div>
+                                                    <div class="feature-item">
+                                                        <img src="../images/conformation page/terms.png" alt="Terms" class="feature-icon">
+                                                        <p class="feature-text">Partner's Terms and Conditions applicable.</p>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-link more-fares-btn">More Fares</button>
+
+                                                <div class="baggage-info">
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/include-bags.png" alt="Cabin Bag" class=" feature-icon">
+                                                    </div>
+                                                    <div class="baggage-item">
+                                                        <div class="d-flex align-items-center gap-1">
+                                                            <img src="../images/conformation page/include.png" alt="Included" class="check-icon">
+                                                            <span class="included-text">Included</span>
+                                                        </div>
+                                                        <img src="../images/conformation page/Trolly bag.png" alt="Checked Bag" class="baggage-icon feature-icon">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="vr"></div>
+
+                                            <div class="pricing-section">
+                                                <div class="price-details">
+                                                    <span class="total-price">Total ₹15,220</span>
+                                                    <div class="discounted-price">
+                                                        <span class="currency">₹ </span>
+                                                        <span class="price-value">14,783</span>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary select-btn" onclick="goToBookingContinue()" type="button">Select</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="primary-cta" onclick="goToPassengerDetails()">
+                            Continue to Booking
+                        </button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="flight-details-sidebar">
+                                <div class="card flight-details-card mb-3">
+                                    <div class="card-body">
+                                        <header class="flight-header">
+                                            <h2 class="flight-route">New York - Tokyo</h2>
+                                            <p class="flight-meta">Jan, 16 Wed • 1 Stop • 12h 30m • Economy</p>
+                                        </header>
+
+                                        <div class="flight-segments">
+                                            <div class="flight-segment">
+                                                <div class="d-flex gap-3 mb-3">
+                                                    <div class="airline-info">
+                                                        <div class="airline-logo-wrapper">
+                                                            <img src="../images/conformation page/American Airlines - jpeg.png" alt="" class="airline-logo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h3 class="airline-name">American Airlines</h3>
+                                                        <p class="flight-number">AA569 | Boing 797</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex gap-3">
+                                                    <div class="flex-grow-1 d-flex">
+                                                        <div class="flight-time-info">
+                                                            <div class="departure-info-detail">
+                                                                <time class="flight-date">Jan, 16 wed</time>
+                                                                <time class="flight-time">01:05</time>
+                                                                <span class="flight-city">New York</span>
+                                                            </div>
+                                                            <p class="airport-address">John F. Kennedy International Airport, New York, USA</p>
+                                                            <span class="terminal-info">Terminal 2</span>
+                                                        </div>
+
+                                                        <div class="flight-duration-wrapper">
+                                                            <span class="duration-text">6h 20min</span>
+                                                            <div class="flight-path">
+                                                                <!-- <img src="/vector-9.svg" alt="Path" class="path-line"> -->
+                                                                <img src="../images/conformation page/connected-flights.png" alt="Flight" class="flight-icon-small">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-time-info">
+                                                            <div class="arrival-info-detail">
+                                                                <time class="flight-date">Jan, 17 wed</time>
+                                                                <time class="flight-time">02:00</time>
+                                                                <span class="flight-city">Dubai</span>
+                                                            </div>
+                                                            <p class="airport-address">Dubai International Airport, Dubai, UAE</p>
+                                                            <span class="terminal-info">Terminal 3</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="baggage-seats-info">
+                                                        <div class="baggage-section mb-3">
+                                                            <div class="d-flex align-items-center gap-2 mb-2">
+                                                                <img src="../images/conformation page/Trolly bag.png" alt="Baggage" class="baggage-label-icon">
+                                                                <span class="baggage-label">Baggage</span>
+                                                            </div>
+                                                            <div class="baggage-details">
+                                                                <div class="baggage-detail-item">
+                                                                    <img src="../images/conformation page/Trolly bag.png" alt="Checked" class="baggage-type-icon">
+                                                                    <span class="baggage-weight">20 kg</span>
+                                                                </div>
+                                                                <hr class="my-1">
+                                                                <div class="baggage-detail-item">
+                                                                    <img src="../images/conformation page/Cabin bag.png" alt="Cabin" class="baggage-type-icon">
+                                                                    <span class="baggage-weight">07 kg</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="seats-section">
+                                                            <img src="../images/conformation page/Seat.png" alt="Seats" class="seat-icon">
+                                                            <span class="seats-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="layover-badge">
+                                                <hr class="flex-grow-1">
+                                                <span class="badge layover-text">Change of Flight • layover of 2hrs in Kolkata • Self Transfer</span>
+                                                <hr class="flex-grow-1">
+                                            </div>
+
+                                            <div class="flight-segment">
+                                                <div class="d-flex gap-3 mb-3">
+                                                    <div class="airline-info">
+                                                        <div class="airline-logo-wrapper">
+                                                            <img src="../images/conformation page/American Airlines - jpeg.png" alt="" class="airline-logo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h3 class="airline-name">American Airlines</h3>
+                                                        <p class="flight-number">AA569 | Boing 797</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex gap-3">
+                                                    <div class="flex-grow-1 d-flex">
+                                                        <div class="flight-time-info">
+                                                            <div class="departure-info-detail">
+                                                                <time class="flight-date">Jan, 17 wed</time>
+                                                                <time class="flight-time">03:45</time>
+                                                                <span class="flight-city">Dubai</span>
+                                                            </div>
+                                                            <address class="airport-address">Dubai International Airport, Dubai, UAE</address>
+                                                            <span class="terminal-info">Terminal 3</span>
+                                                        </div>
+
+                                                        <div class="flight-duration-wrapper">
+                                                            <span class="duration-text">6h 20min</span>
+                                                            <div class="flight-path">
+                                                                <!-- <img src="../images/conformation page/connected-flights.png" alt="Path" class="path-line"> -->
+                                                                <img src="../images/conformation page/connected-flights.png" alt="Flight" class="flight-icon-small">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-time-info">
+                                                            <div class="arrival-info-detail">
+                                                                <time class="flight-date">Jan, 17 wed</time>
+                                                                <time class="flight-time">08:15</time>
+                                                                <span class="flight-city">Tokyo</span>
+                                                            </div>
+                                                            <address class="airport-address">Tokyo Haneda Airport, Tokyo, Japan</address>
+                                                            <span class="terminal-info">Terminal 2</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="baggage-seats-info">
+                                                        <div class="baggage-section mb-3">
+                                                            <div class="d-flex align-items-center gap-2 mb-2">
+                                                                <img src="../images/conformation page/Trolly bag.png" alt="Baggage" class="baggage-label-icon">
+                                                                <span class="baggage-label">Baggage</span>
+                                                            </div>
+                                                            <div class="baggage-details">
+                                                                <div class="baggage-detail-item">
+                                                                    <img src="../images/conformation page/Trolly bag.png" alt="Checked" class="baggage-type-icon">
+                                                                    <span class="baggage-weight">20 kg</span>
+                                                                </div>
+                                                                <hr class="my-1">
+                                                                <div class="baggage-detail-item">
+                                                                    <img src="../images/conformation page/Cabin bag.png" alt="Cabin" class="baggage-type-icon">
+                                                                    <span class="baggage-weight">07 kg</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="seats-section">
+                                                            <img src="../images/conformation page/Seat.png" alt="Seats" class="seat-icon">
+                                                            <span class="seats-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="promotional-image">
+                                    <img src="../images/conformation page/promotion.png" alt="Promotion" class="img-fluid rounded">
+                                </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

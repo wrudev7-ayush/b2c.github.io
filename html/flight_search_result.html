@@ -1,0 +1,2844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Header</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="booking_search_result.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+
+            <!-- LEFT -->
+            <div class="d-flex align-items-center">
+                <div class="logo-box">
+                    <a href="index.html">
+                    <img src="../images/logo.png">
+                    </a>
+                </div>
+
+                <a href="#" class="flights-link">Flights</a>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="right-box">
+                <div class="currency-wrapper">
+                    <div class="currency" id="currencyBtn">
+                        <img src="https://flagcdn.com/w40/au.png" id="currentFlag">
+                        <span id="currentCurrency">AUD</span>
+                    </div>
+
+                    <div class="currency-dropdown" id="currencyDropdown">
+
+                        <!-- COUNTRY LIST WITH REAL FLAGS -->
+                        <div class="currency-item" data-flag="au" data-code="AUD">
+                            <img src="https://flagcdn.com/w40/au.png"> Australia – AUD
+                        </div>
+
+                        <div class="currency-item" data-flag="us" data-code="USD">
+                            <img src="https://flagcdn.com/w40/us.png"> USA – USD
+                        </div>
+
+                        <div class="currency-item" data-flag="in" data-code="INR">
+                            <img src="https://flagcdn.com/w40/in.png"> India – INR
+                        </div>
+
+                        <div class="currency-item" data-flag="gb" data-code="GBP">
+                            <img src="https://flagcdn.com/w40/gb.png"> UK – GBP
+                        </div>
+
+                        <div class="currency-item" data-flag="ca" data-code="CAD">
+                            <img src="https://flagcdn.com/w40/ca.png"> Canada – CAD
+                        </div>
+
+                        <div class="currency-item" data-flag="eu" data-code="EUR">
+                            <img src="https://flagcdn.com/w40/eu.png"> Europe – EUR
+                        </div>
+
+                        <div class="currency-item" data-flag="jp" data-code="JPY">
+                            <img src="https://flagcdn.com/w40/jp.png"> Japan – JPY
+                        </div>
+
+                        <div class="currency-item" data-flag="cn" data-code="CNY">
+                            <img src="https://flagcdn.com/w40/cn.png"> China – CNY
+                        </div>
+
+                        <div class="currency-item" data-flag="sg" data-code="SGD">
+                            <img src="https://flagcdn.com/w40/sg.png"> Singapore – SGD
+                        </div>
+
+                        <div class="currency-item" data-flag="ae" data-code="AED">
+                            <img src="https://flagcdn.com/w40/ae.png"> UAE – AED
+                        </div>
+
+                        <div class="currency-item" data-flag="sa" data-code="SAR">
+                            <img src="https://flagcdn.com/w40/sa.png"> Saudi – SAR
+                        </div>
+
+                        <div class="currency-item" data-flag="kr" data-code="KRW">
+                            <img src="https://flagcdn.com/w40/kr.png"> Korea – KRW
+                        </div>
+
+                        <div class="currency-item" data-flag="th" data-code="THB">
+                            <img src="https://flagcdn.com/w40/th.png"> Thailand – THB
+                        </div>
+
+                        <div class="currency-item" data-flag="my" data-code="MYR">
+                            <img src="https://flagcdn.com/w40/my.png"> Malaysia – MYR
+                        </div>
+
+                        <div class="currency-item" data-flag="ph" data-code="PHP">
+                            <img src="https://flagcdn.com/w40/ph.png"> Philippines – PHP
+                        </div>
+
+                        <div class="currency-item" data-flag="id" data-code="IDR">
+                            <img src="https://flagcdn.com/w40/id.png"> Indonesia – IDR
+                        </div>
+
+                        <div class="currency-item" data-flag="np" data-code="NPR">
+                            <img src="https://flagcdn.com/w40/np.png"> Nepal – NPR
+                        </div>
+
+                        <div class="currency-item" data-flag="lk" data-code="LKR">
+                            <img src="https://flagcdn.com/w40/lk.png"> Sri Lanka – LKR
+                        </div>
+
+                        <div class="currency-item" data-flag="tr" data-code="TRY">
+                            <img src="https://flagcdn.com/w40/tr.png"> Turkey – TRY
+                        </div>
+
+                        <div class="currency-item" data-flag="za" data-code="ZAR">
+                            <img src="https://flagcdn.com/w40/za.png"> South Africa – ZAR
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="support">Support</div>
+
+                <button class="login-btn">
+                    <span><i class="fa-solid fa-arrow-right-to-bracket"></i></span> Login
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- top tabbing section start here  -->
+    <!-- TOP BUTTONS -->
+    <div class="container FlightSearchTabbingSection">
+        <div class="trip-tabs">
+            <div class="trip-tab active">One Way</div>
+            <div class="trip-tab">Round Trip</div>
+            <div class="trip-tab">Multi City</div>
+        </div>
+
+        <!-- MAIN SEARCH result BAR and modify search -->
+        <div class="search-bar">
+
+            <div class="trip-info">
+                <div class="title">
+                    One Way Trip
+                </div>
+                <div class="subtitle">
+                    Hyderabad (HYD) to Delhi (DEL), 1 Traveller, Economy
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="departure-box">
+                    <div class="label"><i class="far fa-calendar-alt"></i> Departure</div>
+                    <div class="date">Fri, 22 Aug</div>
+                </div>
+
+                <button class="search-btn" onclick="goToBookingPage()" type="button">Search</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- modify search end here  -->
+
+    <!-- custom date or calender start here  -->
+    <div class="blur-overlay" id="blurOverlay"></div>
+
+    <div class="container mt-4">
+        <div class="row align-items-stretch g-3">
+
+            <!-- DATE STRIP -->
+            <div class="col">
+                <div class="row g-0 date-strip-wrapper" id="dateStrip">
+
+                    <div class="col date-col">
+                        <div class="date-box" data-offset="-3">
+                            <div class="day">--</div>
+                            <div class="price">₹7,950</div>
+                        </div>
+                    </div>
+                    <div class="col date-col">
+                        <div class="date-box" data-offset="-2">
+                            <div class="day">--</div>
+                            <div class="price">₹8,200</div>
+                        </div>
+                    </div>
+                    <div class="col date-col">
+                        <div class="date-box" data-offset="-1">
+                            <div class="day">--</div>
+                            <div class="price">₹8,500</div>
+                        </div>
+                    </div>
+                    <div class="col date-col">
+                        <div class="date-box active" data-offset="0">
+                            <div class="day">--</div>
+                            <div class="price">₹8,851</div>
+                        </div>
+                    </div>
+                    <div class="col date-col">
+                        <div class="date-box" data-offset="1">
+                            <div class="day">--</div>
+                            <div class="price">₹9,100</div>
+                        </div>
+                    </div>
+                    <div class="col date-col">
+                        <div class="date-box" data-offset="2">
+                            <div class="day">--</div>
+                            <div class="price">₹9,450</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- FLEXIBLE BUTTON + POPUP -->
+            <div class="col-auto position-relative">
+                <div class="flexible-wrapper" id="flexibleBtn">
+                    <i class="fa-regular fa-calendar"></i> Flexible Dates
+                </div>
+
+                <!--  POPUP CALENDAR -->
+                <div class="calendar-popup" id="calendarPopup">
+
+                    <div class="calendar-header">
+                        Month Calender
+                        <span class="close-btn" id="closeCalendar">×</span>
+                    </div>
+
+                    <div class="month-row">
+                        <span class="prev-btn" id="prevMonth">‹</span>
+                        <span id="monthTitle">NOV 2025</span>
+                        <span class="next-btn" id="nextMonth">›</span>
+                    </div>
+
+                    <div class="calendar-grid" id="calendarGrid">
+                        <div class="calendar-day">Su</div>
+                        <div class="calendar-day">Mo</div>
+                        <div class="calendar-day">Tu</div>
+                        <div class="calendar-day">We</div>
+                        <div class="calendar-day">Th</div>
+                        <div class="calendar-day">Fr</div>
+                        <div class="calendar-day">Sa</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- custom date calender end here  -->
+
+    <div class="container p-0 mt-4">
+        <div class="row g-0">
+            <!-- Left Sidebar - Filter Section -->
+            <div class="col-12 col-lg-3 filter-section">
+                <div class="filter-container">
+                    <!-- Header -->
+                    <div class="filter-header">
+                        <div class="showing-text">Showing <strong>34</strong> out of <strong>56</strong> items</div>
+                    </div>
+
+                    <!-- Filter Title and Reset -->
+                    <div class="filter-title-bar">
+                        <div>
+                            <h5 class="filter-title">Filter</h5>
+                        </div>
+                        <button class="btn btn-reset">Reset All</button>
+                    </div>
+
+                    <!-- Filter Content -->
+                    <div class="filter-content">
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#priceFilter">
+                                <span>Price</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="priceFilter">
+                                <div class="filter-body">
+                                    <div class="price-range-text">INR 5,419 - INR 39,260</div>
+                                    <div class="range-slider">
+                                        <div class="range-track"></div>
+                                        <img src="../images/sliderIcon.png" alt="Min"
+                                            class="range-thumb range-thumb-min">
+                                        <img src="../images/sliderIcon.png" alt="Max"
+                                            class="range-thumb range-thumb-max">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stops Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#stopsFilter">
+                                <span>Stops</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="stopsFilter">
+                                <div class="filter-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="direct">
+                                        <label class="form-check-label" for="direct">Direct</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="oneStop" checked>
+                                        <label class="form-check-label" for="oneStop">1 stop</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="twoStops">
+                                        <label class="form-check-label" for="twoStops">2+ stops</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Departure Time Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#departureFilter">
+                                <span>Departure Time</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="departureFilter">
+                                <div class="filter-body">
+                                    <div class="time-range-text">
+                                        Outbound<br>
+                                        <span class="time-range-hours">00:00 - 23:59</span>
+                                    </div>
+                                    <div class="time-slider">
+                                        <div class="time-track"></div>
+                                        <div class="time-thumb time-thumb-min"></div>
+                                        <div class="time-thumb time-thumb-max"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrival Time Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#arrivalFilter">
+                                <span>Arrival Time</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="arrivalFilter">
+                                <div class="filter-body">
+                                    <div class="time-range-text">
+                                        Outbound<br>
+                                        <span class="time-range-hours">00:00 - 23:59</span>
+                                    </div>
+                                    <div class="time-slider">
+                                        <div class="time-track"></div>
+                                        <div class="time-thumb time-thumb-min"></div>
+                                        <div class="time-thumb time-thumb-max"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Baggage Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#baggageFilter">
+                                <span>Baggage</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="baggageFilter">
+                                <div class="filter-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cabinBag">
+                                        <label class="form-check-label" for="cabinBag">Cabin Bag</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkedBag">
+                                        <label class="form-check-label" for="checkedBag">Checked Bag</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Layover Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#layoverFilter">
+                                <span>Layover</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="layoverFilter">
+                                <div class="filter-body">
+                                    <div class="layover-range-text">0 H - 44 H</div>
+                                    <div class="time-slider">
+                                        <div class="time-track"></div>
+                                        <div class="time-thumb time-thumb-min"></div>
+                                        <div class="time-thumb time-thumb-max"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Origin/Destination Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#originFilter">
+                                <span>Origin/Destination</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="originFilter">
+                                <div class="filter-body">
+                                    <div class="filter-option-price">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="bangalore">
+                                            <label class="form-check-label" for="bangalore">Bangalore - BLR</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="filter-option-price">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="dubai">
+                                            <label class="form-check-label" for="dubai">Dubai - DXB</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transit Airports Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#transitFilter">
+                                <span>Transit Airports</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="transitFilter">
+                                <div class="filter-body">
+                                    <div class="filter-option-price">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="addis">
+                                            <label class="form-check-label" for="addis">Addis Ababa - ADD</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="filter-option-price">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="ahmedabad">
+                                            <label class="form-check-label" for="ahmedabad">Ahmedabad - AMD</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Airports Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#airportsFilter">
+                                <span>Airports</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="airportsFilter">
+                                <div class="filter-body">
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="dubai1">
+                                        <label class="form-check-label" for="dubai1">Dubai</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="dubai2">
+                                        <label class="form-check-label" for="dubai2">Dubai</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="england">
+                                        <label class="form-check-label" for="england">England</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="ahmedabad2">
+                                        <label class="form-check-label" for="ahmedabad2">Ahmedabad</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="addis2">
+                                        <label class="form-check-label" for="addis2">Addis</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="bangalore2">
+                                        <label class="form-check-label" for="bangalore2">Bangalore</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="oman">
+                                        <label class="form-check-label" for="oman">Oman</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Airlines Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse" data-bs-target="#airlinesFilter">
+                                <span>Airlines</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="airlinesFilter">
+                                <div class="filter-body">
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="airIndia">
+                                            <label class="form-check-label" for="airIndia">Air India</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="airIndiaExpress">
+                                            <label class="form-check-label" for="airIndiaExpress">Air India
+                                                Express</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="emirates">
+                                            <label class="form-check-label" for="emirates">Emirates</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="ethiad">
+                                            <label class="form-check-label" for="ethiad">Ethiad Airways</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gulfAir">
+                                            <label class="form-check-label" for="gulfAir">Gulf Air</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="indigo">
+                                            <label class="form-check-label" for="indigo">Indigo</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                    <div class="airline-option">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="omanAir">
+                                            <label class="form-check-label" for="omanAir">Oman Air</label>
+                                        </div>
+                                        <span class="option-price">₹31,025</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Sites Filter -->
+                        <div class="filter-group">
+                            <button class="filter-toggle" data-bs-toggle="collapse"
+                                data-bs-target="#bookingSitesFilter">
+                                <span>Booking Sites</span>
+                                <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2"
+                                        fill="none" />
+                                </svg>
+                            </button>
+                            <div class="collapse show" id="bookingSitesFilter">
+                                <div class="filter-body">
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="airIndiaSite">
+                                        <label class="form-check-label" for="airIndiaSite">Air India</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="airIndiaExpressSite">
+                                        <label class="form-check-label" for="airIndiaExpressSite">Air India
+                                            Express</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="emiratesSite">
+                                        <label class="form-check-label" for="emiratesSite">Emirates</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="bookingCom">
+                                        <label class="form-check-label" for="bookingCom">Booking.com</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="makemytrip">
+                                        <label class="form-check-label" for="makemytrip">Makemytrip.com</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="flighthub">
+                                        <label class="form-check-label" for="flighthub">Flighthub.com</label>
+                                    </div>
+                                    <div class="airport-option">
+                                        <input class="form-check-input" type="checkbox" id="omanAirSite">
+                                        <label class="form-check-label" for="omanAirSite">Oman Air</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content - Flight Results -->
+            <div class="col-12 col-lg-9">
+                <div class="results-container">
+                    <div class="row g-2">
+                        <!-- Quick Filter Tabs -->
+                        <div class="card filter-tabs-card mb-2">
+                            <div class="card-body p-2">
+                                <div class="row g-2">
+                                    <div class="col">
+                                        <button class="filter-tab-btn">
+                                            <div class="filter-tab-label">Cheapest</div>
+                                            <div class="filter-tab-value">₹ 4,797 • 1h 15m</div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="filter-tab-btn">
+                                            <div class="filter-tab-label">Best</div>
+                                            <div class="filter-tab-value">₹ 4,797 • 1h 15m</div>
+                                        </button>
+                                    </div>
+                                    <div class="col">
+                                        <button class="filter-tab-btn">
+                                            <div class="filter-tab-label">Quickest</div>
+                                            <div class="filter-tab-value">₹ 7,505 • 1h 02m</div>
+                                        </button>
+                                    </div>
+                                    <!-- <div class="col">
+                                        <div class="dropdown sort-box">
+                                            <button class="btn sort-btn filter-tab-btn" data-bs-toggle="dropdown">
+                                                <span class="selected-text">Sort</span>
+                                                <span><img src="../images/upwardArrow.png" alt=""></span>
+                                            </button>
+
+                                            <ul class="dropdown-menu sort-menu w-100 p-0">
+                                                <li
+                                                    class="dropdown-header sort-header d-flex justify-content-between align-items-center">
+                                                    <span>Sort</span>
+                                                    <span><img src="../images/upwardArrow.png" alt=""></span>
+                                                </li>
+
+                                                <li><a class="dropdown-item" href="#">Airline</a></li>
+                                                <li><a class="dropdown-item" href="#">Arrive</a></li>
+                                                <li><a class="dropdown-item" href="#">Departure</a></li>
+                                                <li><a class="dropdown-item" href="#">Duration</a></li>
+                                                <li><a class="dropdown-item" href="#">Price</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="filter-selected"></div>
+                                    </div> -->
+
+                                    <div class="col sortByMenu">
+                                        <div class="dropdown sort-box">
+                                            <button class="btn sort-btn filter-tab-btn" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <span class="selected-text filter-tab-label">Sort</span>
+                                                <span class="sort_by_img"><img src="../images/upwardArrow.png" alt=""></span>
+                                            </button>
+
+                                            <ul class="dropdown-menu sort-menu w-100 p-0">
+                                                <li
+                                                    class="dropdown-header sort-header d-flex justify-content-between align-items-center">
+                                                    <span>Sort</span>
+                                                    <span><img src="../images/upwardArrow.png" alt=""></span>
+                                                </li>
+
+                                                <li><a class="dropdown-item" href="#">Airline</a></li>
+                                                <li><a class="dropdown-item" href="#">Arrive</a></li>
+                                                <li><a class="dropdown-item" href="#">Departure</a></li>
+                                                <li><a class="dropdown-item" href="#">Duration</a></li>
+                                                <li><a class="dropdown-item" href="#">Price</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Selected value prints here -->
+                                        <div class="filter-selected"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-10">
+
+                            <!-- Flight Results -->
+                            <!-- =================  FLIGHT RESULTS START ================= -->
+
+                            <!--  FLIGHT 1 card -->
+                            <div class="flight-card">
+                                <div class="flight-card-header">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div class="flight-badges">
+                                            <span class="badge-custom badge-best">Best</span>
+                                            <span class="badge-custom badge-self-transfer">Self Transfer</span>
+                                        </div>
+
+                                        <div class="price-alert-toggle">
+                                            <span class="price-alert-label">Set Price Alerts</span>
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="togglePriceAlert(0)">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="flight-details">
+                                        <div style="flex: 1;">
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <!-- <div class="airline-logo"
+                                                                style="background-image: url('/ix-icon.png')">
+                                                            </div> -->
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="flight-stops">
+                                                            <div class="stops-text">1 Stop</div>
+                                                            <div class="stop-location">DEL</div>
+                                                        </div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="stops-text">Direct</div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flight-price-section">
+                                            <div class="price-info">
+                                                <div>
+                                                    <div class="price-from-text">From 4 sites</div>
+                                                    <div class="price-amount">₹2,153</div>
+                                                </div>
+                                                <button type="button" class="book-now-btn" onclick="goToBookingPage()">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flight-card-footer">
+                                    <div class="flight-airline-info">
+                                        <span class="airline-names">IndiGo, Spicejet</span>
+                                        <button class="flight-details-link" onclick="toggleFlightDetails(0)">Flight
+                                            Details</button>
+                                    </div>
+
+                                    <div class="flight-actions">
+                                        <button class="action-btn">
+                                            <span class="action-text">Save</span>
+                                            <!-- <img src="/iconamoon-bookmark-light.svg" class="action-icon"> -->
+                                            <i class="fa-regular fa-bookmark action-icon"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="action-text"><button class="btn" data-bs-toggle="modal"
+                                                    data-bs-target="#shareModal"> Share
+                                                </button></span>
+                                            <i class="fa-solid fa-share-nodes action-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- EXPANDED DETAILS -->
+                                <!-- ================= Flight DETAILS CARD ================= -->
+                                <div class="expanded-details">
+
+                                    <!-- ========== ONWARD FLIGHT ========== -->
+                                    <div class="onward-flight-section">
+                                        <div class="section-title">Onward Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- timeline -->
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">02:00</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon"></span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Layover pill -->
+                                        <div class="layover-pill">
+                                            <span>Change of Flight</span>
+                                            <span class="dot">•</span>
+                                            <span>layover of 2hrs in Kolkata</span>
+                                            <span class="dot">•</span>
+                                            <span>Self Transfer</span>
+                                        </div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">03:45</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ========== RETURN FLIGHT ========== -->
+                                    <div class="return-flight-section">
+                                        <div class="section-title return-title">Return Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <!-- FLIGHT 2 card  -->
+                            <div class="flight-card">
+                                <div class="flight-card-header">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div class="flight-badges">
+                                            <span class="badge-custom badge-best">Best</span>
+                                            <span class="badge-custom badge-self-transfer">Self Transfer</span>
+                                        </div>
+
+                                        <div class="price-alert-toggle">
+                                            <span class="price-alert-label">Set Price Alerts</span>
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="togglePriceAlert(0)">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="flight-details">
+                                        <div style="flex: 1;">
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <!-- <div class="airline-logo"
+                                                                style="background-image: url('/ix-icon.png')">
+                                                            </div> -->
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="flight-stops">
+                                                            <div class="stops-text">1 Stop</div>
+                                                            <div class="stop-location">DEL</div>
+                                                        </div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="stops-text">Direct</div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flight-price-section">
+                                            <div class="price-info">
+                                                <div>
+                                                    <div class="price-from-text">From 4 sites</div>
+                                                    <div class="price-amount">₹2,153</div>
+                                                </div>
+                                                <button type="button" class="book-now-btn" onclick="goToBookingPage()">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flight-card-footer">
+                                    <div class="flight-airline-info">
+                                        <span class="airline-names">IndiGo, Spicejet</span>
+                                        <button class="flight-details-link" onclick="toggleFlightDetails(0)">Flight
+                                            Details</button>
+                                    </div>
+
+                                    <div class="flight-actions">
+                                        <button class="action-btn">
+                                            <span class="action-text">Save</span>
+                                            <!-- <img src="/iconamoon-bookmark-light.svg" class="action-icon"> -->
+                                            <i class="fa-regular fa-bookmark action-icon"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="action-text"><button class="btn" data-bs-toggle="modal"
+                                                    data-bs-target="#shareModal"> Share
+                                                </button></span>
+                                            <i class="fa-solid fa-share-nodes action-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!--  EXPANDED DETAILS -->
+                                <!-- ================= Flight DETAILS CARD ================= -->
+                                <div class="expanded-details">
+
+                                    <!-- ========== ONWARD FLIGHT ========== -->
+                                    <div class="onward-flight-section">
+                                        <div class="section-title">Onward Flight</div>
+
+                                        <!-- First Leg : New York → Dubai -->
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">02:00</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Layover pill -->
+                                        <div class="layover-pill">
+                                            <span>Change of Flight</span>
+                                            <span class="dot">•</span>
+                                            <span>layover of 2hrs in Kolkata</span>
+                                            <span class="dot">•</span>
+                                            <span>Self Transfer</span>
+                                        </div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">03:45</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ========== RETURN FLIGHT ========== -->
+                                    <div class="return-flight-section">
+                                        <div class="section-title return-title">Return Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!--  PROMO BLUE -->
+                            <div class="promo-card-blue">
+                                <div class="promo-image-container promo-image-wrapper">
+                                    <img src="../images/exclusiveDealsImg.png" class="promo-image">
+                                </div>
+                                <div class="promo-content">
+                                    <div class="promo-text-wrapper">
+                                        <div class="promo-title">Stay Updated! Exclusive Travel Deals & Inspiring
+                                            Getaways Await</div>
+                                        <div class="promo-subtitle">Enjoy incredible airfare deals to top destinations
+                                            worldwide.</div>
+                                    </div>
+                                    <button class="promo-btn">View Deal</button>
+                                </div>
+                            </div>
+
+                            <!-- Flight 3 card  -->
+                            <div class="flight-card">
+                                <div class="flight-card-header">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div class="flight-badges">
+                                            <span class="badge-custom badge-best">Best</span>
+                                            <span class="badge-custom badge-self-transfer">Self Transfer</span>
+                                        </div>
+
+                                        <div class="price-alert-toggle">
+                                            <span class="price-alert-label">Set Price Alerts</span>
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="togglePriceAlert(0)">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="flight-details">
+                                        <div style="flex: 1;">
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <!-- <div class="airline-logo"
+                                                                style="background-image: url('/ix-icon.png')">
+                                                            </div> -->
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="flight-stops">
+                                                            <div class="stops-text">1 Stop</div>
+                                                            <div class="stop-location">DEL</div>
+                                                        </div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="stops-text">Direct</div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flight-price-section">
+                                            <div class="price-info">
+                                                <div>
+                                                    <div class="price-from-text">From 4 sites</div>
+                                                    <div class="price-amount">₹2,153</div>
+                                                </div>
+                                                <button type="button" class="book-now-btn" onclick="goToBookingPage()">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flight-card-footer">
+                                    <div class="flight-airline-info">
+                                        <span class="airline-names">IndiGo, Spicejet</span>
+                                        <button class="flight-details-link" onclick="toggleFlightDetails(0)">Flight
+                                            Details</button>
+                                    </div>
+
+                                    <div class="flight-actions">
+                                        <button class="action-btn">
+                                            <span class="action-text">Save</span>
+                                            <!-- <img src="/iconamoon-bookmark-light.svg" class="action-icon"> -->
+                                            <i class="fa-regular fa-bookmark action-icon"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="action-text"><button class="btn" data-bs-toggle="modal"
+                                                    data-bs-target="#shareModal"> Share
+                                                </button></span>
+                                            <i class="fa-solid fa-share-nodes action-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- EXPANDED DETAILS -->
+                                <!-- ================= Flight DETAILS CARD ================= -->
+                                <div class="expanded-details">
+
+                                    <!-- ========== ONWARD FLIGHT ========== -->
+                                    <div class="onward-flight-section">
+                                        <div class="section-title">Onward Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- timeline -->
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">02:00</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="layover-pill">
+                                            <span>Change of Flight</span>
+                                            <span class="dot">•</span>
+                                            <span>layover of 2hrs in Kolkata</span>
+                                            <span class="dot">•</span>
+                                            <span>Self Transfer</span>
+                                        </div>
+
+                                        <!-- Second Leg : Dubai → Tokyo (SAME PATTERN) -->
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">03:45</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ========== RETURN FLIGHT ========== -->
+                                    <div class="return-flight-section">
+                                        <div class="section-title return-title">Return Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <!--  PROMO ORANGE -->
+                            <div class="promo-card-orange">
+                                <img src="../images/exclusiveDealsImge2.jpg" class="promo-image-orange">
+                                <div class="promo-content-orange">
+                                    <div class="promo-text-wrapper">
+                                        <div class="promo-title-orange">Stay Updated! Exclusive Travel Deals & Inspiring
+                                            Getaways Await</div>
+                                        <div class="promo-subtitle-orange">Enjoy incredible airfare deals to top
+                                            destinations worldwide.</div>
+                                    </div>
+                                    <button class="promo-btn">View Deal</button>
+                                </div>
+                            </div>
+
+                            <div class="flight-card">
+                                <div class="flight-card-header">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div class="flight-badges">
+                                            <span class="badge-custom badge-best">Best</span>
+                                            <span class="badge-custom badge-self-transfer">Self Transfer</span>
+                                        </div>
+
+                                        <div class="price-alert-toggle">
+                                            <span class="price-alert-label">Set Price Alerts</span>
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="togglePriceAlert(0)">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="flight-details">
+                                        <div style="flex: 1;">
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <!-- <div class="airline-logo"
+                                                                style="background-image: url('/ix-icon.png')">
+                                                            </div> -->
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="flight-stops">
+                                                            <div class="stops-text">1 Stop</div>
+                                                            <div class="stop-location">DEL</div>
+                                                        </div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="stops-text">Direct</div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flight-price-section">
+                                            <div class="price-info">
+                                                <div>
+                                                    <div class="price-from-text">From 4 sites</div>
+                                                    <div class="price-amount">₹2,153</div>
+                                                </div>
+                                                <button type="button" class="book-now-btn" onclick="goToBookingPage()">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flight-card-footer">
+                                    <div class="flight-airline-info">
+                                        <span class="airline-names">IndiGo, Spicejet</span>
+                                        <button class="flight-details-link" onclick="toggleFlightDetails(0)">Flight
+                                            Details</button>
+                                    </div>
+
+                                    <div class="flight-actions">
+                                        <button class="action-btn">
+                                            <span class="action-text">Save</span>
+                                            <!-- <img src="/iconamoon-bookmark-light.svg" class="action-icon"> -->
+                                            <i class="fa-regular fa-bookmark action-icon"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="action-text"><button class="btn" data-bs-toggle="modal"
+                                                    data-bs-target="#shareModal"> Share
+                                                </button></span>
+                                            <i class="fa-solid fa-share-nodes action-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!--  EXPANDED DETAILS -->
+                                <!-- ================= Fligh DETAILS CARD ================= -->
+                                <div class="expanded-details">
+
+                                    <!-- ========== ONWARD FLIGHT ========== -->
+                                    <div class="onward-flight-section">
+                                        <div class="section-title">Onward Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- timeline -->
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">02:00</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon"></span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Layover pill -->
+                                        <div class="layover-pill">
+                                            <span>Change of Flight</span>
+                                            <span class="dot">•</span>
+                                            <span>layover of 2hrs in Kolkata</span>
+                                            <span class="dot">•</span>
+                                            <span>Self Transfer</span>
+                                        </div>
+
+                                        <!-- Second Leg : Dubai → Tokyo (SAME PATTERN) -->
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">03:45</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ========== RETURN FLIGHT ========== -->
+                                    <div class="return-flight-section">
+                                        <div class="section-title return-title">Return Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="flight-card">
+                                <div class="flight-card-header">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <div class="flight-badges">
+                                            <span class="badge-custom badge-best">Best</span>
+                                            <span class="badge-custom badge-self-transfer">Self Transfer</span>
+                                        </div>
+
+                                        <div class="price-alert-toggle">
+                                            <span class="price-alert-label">Set Price Alerts</span>
+                                            <label class="switch">
+                                                <input type="checkbox" checked onchange="togglePriceAlert(0)">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="flight-details">
+                                        <div style="flex: 1;">
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <!-- <div class="airline-logo"
+                                                                style="background-image: url('/ix-icon.png')">
+                                                            </div> -->
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="flight-stops">
+                                                            <div class="stops-text">1 Stop</div>
+                                                            <div class="stop-location">DEL</div>
+                                                        </div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="flight-row">
+                                                <div class="flight-info-left">
+                                                    <div class="d-flex align-items-start" style="gap: 10px;">
+                                                        <div class="flight-airline-logo">
+                                                            <div class="airline-logo">
+                                                                <img src="../images/xyzicon.png" alt=""
+                                                                    class="airline-logo">
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">4:10</div>
+                                                            <div class="flight-airport">DEL Indira Gandh..</div>
+                                                        </div>
+                                                        <div class="flight-time-info">
+                                                            <div class="flight-time">17:10</div>
+                                                            <div class="flight-airport">BLR Bengaluru Intl</div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="flight-stops-duration">
+                                                        <div class="stops-text">Direct</div>
+                                                        <div class="duration-text">3h 00m</div>
+                                                        <div class="baggage-text">20kg</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flight-price-section">
+                                            <div class="price-info">
+                                                <div>
+                                                    <div class="price-from-text">From 4 sites</div>
+                                                    <div class="price-amount">₹2,153</div>
+                                                </div>
+                                                <button type="button" class="book-now-btn" onclick="goToBookingPage()">Book Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flight-card-footer">
+                                    <div class="flight-airline-info">
+                                        <span class="airline-names">IndiGo, Spicejet</span>
+                                        <button class="flight-details-link" onclick="toggleFlightDetails(0)">Flight
+                                            Details</button>
+                                    </div>
+
+                                    <div class="flight-actions">
+                                        <button class="action-btn">
+                                            <span class="action-text">Save</span>
+                                            <!-- <img src="/iconamoon-bookmark-light.svg" class="action-icon"> -->
+                                            <i class="fa-regular fa-bookmark action-icon"></i>
+                                        </button>
+                                        <button class="action-btn">
+                                            <span class="action-text"><button class="btn" data-bs-toggle="modal"
+                                                    data-bs-target="#shareModal"> Share
+                                                </button></span>
+                                            <i class="fa-solid fa-share-nodes action-icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!--  EXPANDED DETAILS -->
+                                <!-- ================= Flight DETAILS CARD ================= -->
+                                <div class="expanded-details">
+
+                                    <!-- ========== ONWARD FLIGHT ========== -->
+                                    <div class="onward-flight-section">
+                                        <div class="section-title">Onward Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- timeline  -->
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">02:00</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Layover pill -->
+                                        <div class="layover-pill">
+                                            <span>Change of Flight</span>
+                                            <span class="dot">•</span>
+                                            <span>layover of 2hrs in Kolkata</span>
+                                            <span class="dot">•</span>
+                                            <span>Self Transfer</span>
+                                        </div>
+
+                                        <!-- Second Leg : Dubai → Tokyo (SAME PATTERN) -->
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">03:45</div>
+                                                                        <div class="city-name">Dubai</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Dubai International Airport, Dubai, UAE
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ========== RETURN FLIGHT ========== -->
+                                    <div class="return-flight-section">
+                                        <div class="section-title return-title">Return Flight</div>
+
+                                        <div class="detailed-flight-info">
+                                            <div class="detailed-flight-content">
+
+                                                <div class="flight-main-row">
+                                                    <!-- left -->
+                                                    <div class="flight-left">
+                                                        <div class="airline-header">
+                                                            <div class="airline-logo-large">
+                                                                <img src="../images/americanAirline.jpg"
+                                                                    alt="American Airlines">
+                                                            </div>
+                                                            <div class="airline-info">
+                                                                <div class="airline-name-large">American Airlines</div>
+                                                                <div class="flight-number-aircraft">AA569 | Boing 797
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="flight-timeline">
+                                                            <div class="timeline-content">
+
+                                                                <div class="departure-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 16 wed</div>
+                                                                        <div class="time-large">01:05</div>
+                                                                        <div class="city-name">Tokyo</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        Tokyo Haneda Airport, Tokyo, Japan
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 2</div>
+                                                                </div>
+
+                                                                <div class="flight-duration-visual">
+                                                                    <div class="duration-label">6h 20min</div>
+                                                                    <div class="duration-line">
+                                                                        <img src="../images/vectorFlight.png"
+                                                                            class="duration-line-svg" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="arrival-info">
+                                                                    <div class="time-details">
+                                                                        <div class="date-text">Jan, 17 wed</div>
+                                                                        <div class="time-large">08:15</div>
+                                                                        <div class="city-name">New York</div>
+                                                                    </div>
+                                                                    <div class="airport-name">
+                                                                        John F. Kennedy International Airport, New York,
+                                                                        USA
+                                                                    </div>
+                                                                    <div class="terminal-info">Terminal 3</div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- right -->
+                                                    <div class="flight-right">
+                                                        <div class="baggage-section">
+                                                            <div class="baggage-title">Baggage</div>
+                                                            <div class="baggage-box">
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Check-in</div>
+                                                                    <div class="bag-weight">20 kg</div>
+                                                                </div>
+                                                                <div class="bag-item">
+                                                                    <div class="bag-label">Cabin</div>
+                                                                    <div class="bag-weight">07 kg</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="seats-info">
+                                                            <span class="seat-icon">✈</span>
+                                                            <span class="seat-text">Seats: 12</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!-- =================  FLIGHT RESULTS END ================= -->
+
+                        </div>
+
+                        <!-- Right Sidebar Ad -->
+                        <div class="col-12 col-xl-2">
+                            <aside class="ad-sidebar">
+                                <img src="../images/advertisiment.png" alt="Advertisement">
+                                <img src="../images/advertisement2.jpg" alt="Advertisement">
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- share button modal popup -->
+    <!-- Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content share-modal-box">
+
+                <!-- Header -->
+                <div class="share-header">
+                    <h2>Share Flight Details</h2>
+                    <span class="share-close" data-bs-dismiss="modal">&times;</span>
+                </div>
+
+                <!-- Flight Info -->
+                <div class="share-flight-info row align-items-center">
+                    <div class="col-8">
+                        <div class="route-text">New York → Tokyo</div>
+                        <div class="airline-text">American Airlines · Jan 16–Jan 17</div>
+                    </div>
+                    <div class="col-4 text-end">
+                        <div class="total-text">Total</div>
+                        <div class="price-text">₹2,153</div>
+                    </div>
+                </div>
+
+                <!-- Share Options -->
+                <div class="share-options-box">
+                    <div class="row text-center">
+
+                        <div class="col-4 share-option">
+                            <i class="bi bi-link-45deg"></i>
+                            <p>Copy link</p>
+                        </div>
+
+                        <div class="col-4 share-option">
+                            <i class="bi bi-envelope"></i>
+                            <p>Email</p>
+                        </div>
+
+                        <div class="col-4 share-option">
+                            <div class="whatsapp-circle">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <p>WhatsApp</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const defaultValue = "Price";
+
+    // Set default value on load
+    document.querySelectorAll(".col").forEach(col => {
+      const filterSelected = col.querySelector(".filter-selected");
+      if (filterSelected) {
+        filterSelected.innerText = defaultValue;
+      }
+    });
+
+    // Handle click on dropdown items
+    document.querySelectorAll(".sort-menu .dropdown-item").forEach(item => {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const selectedValue = this.innerText;
+        const wrapper = this.closest(".col");
+
+        // Update selected text
+        wrapper.querySelector(".filter-selected").innerText = selectedValue;
+
+        // Close dropdown
+        const dropdownBtn = wrapper.querySelector(".sort-btn");
+        bootstrap.Dropdown.getOrCreateInstance(dropdownBtn).hide();
+      });
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll(".sort-menu .dropdown-item").forEach(item => {
+    if (item.innerText.trim() === "Price") {
+      item.classList.add("active");
+    }
+  });
+</script>
+
+
+
+
+    <script src="./search_result.js"></script>
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/5ce970608f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

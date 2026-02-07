@@ -1,0 +1,681 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #202020;
+    overflow-x: hidden;
+}
+.primary-cta {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 18px 48px;
+            border-radius: 18px;
+            border: none;
+            font-weight: 700;
+        }
+
+.main-container {
+    width: 100%;
+    min-width: 1440px;
+    display: flex;
+    justify-content: center;
+    padding-top: 122px;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.promotions-section {
+    width: 100%;
+}
+
+.search-bar-wrapper {
+    padding: 0 104px;
+}
+
+.search-bar {
+    background-color: #315186;
+    border-radius: 8px;
+    padding: 9px 32px;
+}
+
+.flight-icon {
+    width: 17px;
+    height: 16px;
+}
+
+.trip-type {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 15.4px;
+}
+
+.trip-details {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 15.4px;
+}
+
+.departure-info {
+    padding: 8px 10px;
+}
+
+.departure-label {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 18.6px;
+}
+
+.departure-date {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.search-btn {
+    height: 46px;
+    padding: 0 12.27px;
+    background-color: #ffffff !important;
+    border: none;
+    border-radius: 8px;
+}
+
+.search-btn:hover {
+    background-color: #f0f0f0 !important;
+}
+
+.search-btn-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #18376b;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.flight-options-section {
+    width: 100%;
+}
+
+.filter-checkboxes {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    left: 12px;
+}
+
+.filter-checkbox {
+    padding: 1px 22px;
+    border-radius: 8px;
+    border: 1px solid #00000063;
+}
+
+.filter-checkbox .form-check-input {
+    width: 20px;
+    height: 20px;
+    border-color: #222222;
+    position: relative;
+    left: 8px;
+    top: 6px;
+    margin-right: 13px;
+}
+.form-check-input:checked{
+    background-color: #203667;
+    border-color: #203667;
+}
+.filter-checkbox .form-check-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #666666;
+    font-size: 13px;
+    line-height: 38px;
+    cursor: pointer;
+}
+
+.provider-card {
+    background-color: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 14.79px;
+    box-shadow: none;
+}
+
+.provider-card .card-body {
+    padding: 10px 17px;
+    min-height: 214px;
+}
+
+.provider-logo-section {
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.provider-logo {
+    width: 56px;
+    height: auto;
+    object-fit: contain;
+}
+
+.provider-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #202020;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 0.22px;
+    line-height: normal;
+    margin: 0;
+}
+
+.provider-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.star-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.rating-value {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #131313;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.rating-count {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #131313;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration: underline;
+}
+
+.provider-features {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-bottom: 12px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.feature-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    object-fit: scale-down;
+}
+
+.feature-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #131313;
+    font-size: 12px;
+    line-height: 17px;
+    margin: 0;
+}
+
+.more-fares-btn {
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    color: #18376b;
+    font-size: 12px;
+    line-height: 24px;
+    padding: 0;
+    text-decoration: none;
+}
+
+.baggage-info {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+}
+
+.baggage-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.check-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.included-text {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #202020;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.baggage-icon {
+     width: 24px;
+    height: 24px;
+    background: #f4f5f5;
+    border-radius: 20px;
+}
+
+.vr {
+    height: 174px;
+    width: 1px;
+    background-color: #e5e7eb;
+    margin: 0 16px;
+}
+
+.pricing-section {
+    width: 149px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.price-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    width: 100%;
+}
+
+.total-price {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    color: #666666;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.discounted-price {
+    font-family: 'Lato', sans-serif;
+    color: #18376b;
+    font-size: 18px;
+    line-height: 25.7px;
+    text-align: right;
+}
+
+.currency {
+    font-weight: 400;
+}
+
+.price-value {
+    font-weight: 700;
+}
+
+.select-btn {
+    width: 100%;
+    background-color: #18376b !important;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #f9f9f9;
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    line-height: 20px;
+}
+
+.select-btn:hover {
+    background-color: #142a52 !important;
+}
+
+.flight-details-card {
+    background-color: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 12px;
+    box-shadow: none;
+}
+
+.flight-details-card .card-body {
+    padding: 16px;
+    height: 636px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flight-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.flight-route {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    margin: 0;
+}
+
+.flight-meta {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    color: #666666;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.flight-segments {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flight-segment {
+    width: 100%;
+}
+
+.airline-info {
+    display: flex;
+    gap: 12px;
+}
+
+.airline-logo-wrapper {
+    width: 52px;
+    height: 52px;
+    position: relative;
+}
+
+.airline-logo {
+    position: absolute;
+    width: 80%;
+    height: 42px;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    border-radius: 4px;
+}
+
+.airline-name {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 20px;
+    line-height: 28px;
+    margin: 0;
+}
+
+.flight-number {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    color: #666666;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.flight-time-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.departure-info-detail,
+.arrival-info-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.arrival-info-detail {
+    align-items: flex-end;
+}
+
+.flight-date {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    color: #808080;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.flight-time {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.flight-city {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    color: #2e2e2e;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.airport-address {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #666666;
+    font-size: 12px;
+    letter-spacing: 0.06px;
+    line-height: 16px;
+    font-style: normal;
+}
+
+.terminal-info {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    color: #4b4b4b;
+    font-size: 12px;
+    letter-spacing: 0.06px;
+    line-height: 16px;
+}
+
+.flight-duration-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 0;
+}
+
+.duration-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    color: #666666;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.flight-path {
+    position: relative;
+    width: 67px;
+    height: 12px;
+}
+
+.path-line {
+    position: absolute;
+    top: 6px;
+    left: 1px;
+    width: 67px;
+    height: 1px;
+}
+
+.flight-icon-small {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 70px;
+    height: 13px;
+}
+
+.baggage-seats-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.baggage-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.baggage-label-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.baggage-label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.baggage-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #bfbfbf;
+}
+
+.baggage-detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.baggage-type-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.baggage-weight {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    color: #2e2e2e;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.seats-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.seat-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.seats-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    color: #2e2e2e;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.layover-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.layover-badge hr {
+    flex-grow: 1;
+    margin: 0;
+    border-color: #e5e7eb;
+}
+
+.layover-text {
+    background-color: #ffcbcb;
+    color: #2e2e2e;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 8px;
+    border-radius: 16px;
+}
+
+.promotional-image {
+    width: 100%;
+    height: 359px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.promotional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1440px) {
+    .main-container {
+        min-width: 100%;
+    }
+
+    .search-bar-wrapper {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .vr {
+        display: none;
+    }
+
+    .provider-card .card-body {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+    }
+
+    .pricing-section {
+        width: 100%;
+        align-items: center;
+    }
+}

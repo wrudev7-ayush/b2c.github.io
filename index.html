@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrabZu - Travel & Tourism</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/kapido.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <style>
+    .main-header{
+      position: relative;
+      bottom: 34px;
+    }
+    .flights-link{
+      color: #e8eefa;
+      font-weight: 400;
+    }
+    #currentCurrency {
+    color: #e7eefb;
+    font-weight: 400;
+}
+.support{
+      color: #e7eefb;
+      font-weight: 400;
+}
+.login-btn {
+    border: 1px solid #e7eefb4f;
+    color: #e8eefa;
+    background: transparent;
+    font-weight: 400;
+}
+  </style>
+</head>
+
+<body>
+  <!-- custom cursor code start here  -->
+  <div class="cursor-outline"></div>
+  <div class="cursor-dot"></div>
+  <!-- custom cursor code end here  -->
+<section class="hero">
+  <div class="main-header">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <!-- LEFT -->
+        <div class="d-flex align-items-center">
+          <div class="logo-box">
+            <a href="index.html">
+            <img src="./images/logo.png">
+            </a>
+          </div>
+
+          <a href="#" class="flights-link">Flights</a>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right-box">
+          <div class="currency-wrapper">
+            <div class="currency" id="currencyBtn">
+              <img src="https://flagcdn.com/w40/au.png" id="currentFlag">
+              <span id="currentCurrency">AUD</span>
+            </div>
+
+            <div class="currency-dropdown" id="currencyDropdown">
+
+              <!-- COUNTRY LIST WITH REAL FLAGS -->
+              <div class="currency-item" data-flag="au" data-code="AUD">
+                <img src="https://flagcdn.com/w40/au.png"> Australia – AUD
+              </div>
+
+              <div class="currency-item" data-flag="us" data-code="USD">
+                <img src="https://flagcdn.com/w40/us.png"> USA – USD
+              </div>
+
+              <div class="currency-item" data-flag="in" data-code="INR">
+                <img src="https://flagcdn.com/w40/in.png"> India – INR
+              </div>
+
+              <div class="currency-item" data-flag="gb" data-code="GBP">
+                <img src="https://flagcdn.com/w40/gb.png"> UK – GBP
+              </div>
+
+              <div class="currency-item" data-flag="ca" data-code="CAD">
+                <img src="https://flagcdn.com/w40/ca.png"> Canada – CAD
+              </div>
+
+              <div class="currency-item" data-flag="eu" data-code="EUR">
+                <img src="https://flagcdn.com/w40/eu.png"> Europe – EUR
+              </div>
+
+              <div class="currency-item" data-flag="jp" data-code="JPY">
+                <img src="https://flagcdn.com/w40/jp.png"> Japan – JPY
+              </div>
+
+              <div class="currency-item" data-flag="cn" data-code="CNY">
+                <img src="https://flagcdn.com/w40/cn.png"> China – CNY
+              </div>
+
+              <div class="currency-item" data-flag="sg" data-code="SGD">
+                <img src="https://flagcdn.com/w40/sg.png"> Singapore – SGD
+              </div>
+
+              <div class="currency-item" data-flag="ae" data-code="AED">
+                <img src="https://flagcdn.com/w40/ae.png"> UAE – AED
+              </div>
+
+              <div class="currency-item" data-flag="sa" data-code="SAR">
+                <img src="https://flagcdn.com/w40/sa.png"> Saudi – SAR
+              </div>
+
+              <div class="currency-item" data-flag="kr" data-code="KRW">
+                <img src="https://flagcdn.com/w40/kr.png"> Korea – KRW
+              </div>
+
+              <div class="currency-item" data-flag="th" data-code="THB">
+                <img src="https://flagcdn.com/w40/th.png"> Thailand – THB
+              </div>
+
+              <div class="currency-item" data-flag="my" data-code="MYR">
+                <img src="https://flagcdn.com/w40/my.png"> Malaysia – MYR
+              </div>
+
+              <div class="currency-item" data-flag="ph" data-code="PHP">
+                <img src="https://flagcdn.com/w40/ph.png"> Philippines – PHP
+              </div>
+
+              <div class="currency-item" data-flag="id" data-code="IDR">
+                <img src="https://flagcdn.com/w40/id.png"> Indonesia – IDR
+              </div>
+
+              <div class="currency-item" data-flag="np" data-code="NPR">
+                <img src="https://flagcdn.com/w40/np.png"> Nepal – NPR
+              </div>
+
+              <div class="currency-item" data-flag="lk" data-code="LKR">
+                <img src="https://flagcdn.com/w40/lk.png"> Sri Lanka – LKR
+              </div>
+
+              <div class="currency-item" data-flag="tr" data-code="TRY">
+                <img src="https://flagcdn.com/w40/tr.png"> Turkey – TRY
+              </div>
+
+              <div class="currency-item" data-flag="za" data-code="ZAR">
+                <img src="https://flagcdn.com/w40/za.png"> South Africa – ZAR
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="support">Support</div>
+
+          <button class="login-btn" onclick="goToLogin()">
+            <span><i class="fa-solid fa-arrow-right-to-bracket"></i></span> Login
+          </button>
+        </div>
+
+    </div>
+      </div>
+    <div class="container">
+
+      <!-- TOP BAR -->
+      <!-- <div class="top-bar">
+        <div class="logo">Your Logo</div>
+        <div class="contact d-none d-md-flex">
+          <span><a href="#" class="navigation_link">Flight</a></span>
+          <span><a href="#" class="navigation_link">Support</a></span>
+        </div>
+        <div class="manage">Login</div>
+      </div> -->
+
+      <!-- HERO CONTENT -->
+      <div class="hero-content">
+        <div class="row align-items-center">
+          <div class="col-lg-10 mt-5 mt-lg-0">
+            <h1>Hey Buddy! Where are you <span>Flying to?</span></h1>
+          </div>
+        </div>
+      <section class="hero-section">
+
+          <div class="container hero-content">
+
+            <!-- ================= SEARCH CARD ================= -->
+            <div class="search-card mt-5">
+              <div class="trip-types mb-3">
+                <button class="active">One Way</button>
+                <button>Round Trip</button>
+                <button>Multi-city</button>
+              </div>
+
+              <div class="row g-3 align-items-center">
+                <div class="col-md-2">
+                  <div class="field-wrapper">
+                    <div class="input-wrapper">
+                      <label>From</label>
+                      <input type="text" id="fromInput" placeholder="From">
+                    </div>
+
+
+                    <div class="city-panel" id="fromPanel">
+                      <div class="popular-section">
+                        <h6>Popular cities</h6>
+                        <div class="city-grid">
+                          <span class="city active">New Delhi</span>
+                          <span class="city">Kozhikode</span>
+                          <span class="city">Mumbai</span>
+                          <span class="city">Cochin</span>
+                          <span class="city">Lucknow</span>
+                          <span class="city">Hyderabad</span>
+                          <span class="city">Trivandrum</span>
+                          <span class="city">Chennai</span>
+                          <span class="city">Bangalore</span>
+                          <span class="city">Mangalore</span>
+                          <span class="city">Kannur</span>
+                          <span class="city">Kolkata</span>
+                        </div>
+                      </div>
+
+                      <!-- REQUIRED FOR SEARCH MODE -->
+                      <ul class="search-list"></ul>
+                    </div>
+
+                  </div>
+                </div>
+
+
+                <div class="col-md-2">
+                  <!-- <div class="input-box position-relative">
+                            <label>To</label>
+                            <input type="text" id="fromInput" placeholder="Search airport">
+                            <ul class="autocomplete-list" id="fromList"></ul>
+                        </div> -->
+                  <div class="input-wrapper">
+                    <label>To</label>
+                    <input type="text" id="toInput" placeholder="To">
+                  </div>
+
+                  <!-- SUGGESTION PANEL -->
+                  <div class="city-panel" id="toPanel">
+                    <div class="popular-section">
+                      <h6>Popular cities</h6>
+                      <div class="city-grid">
+                        <span class="city">New Delhi</span>
+                        <span class="city">Mumbai</span>
+                        <span class="city">Hyderabad</span>
+                        <span class="city">Chennai</span>
+                        <span class="city">Bangalore</span>
+                      </div>
+                    </div>
+
+                    <ul class="search-list"></ul>
+                  </div>
+
+
+                </div>
+
+                <div class="col-md-2">
+                  <div class="input-box">
+                    <label>Departure</label>
+                    <input type="date">
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="input-box">
+                    <label>Return</label>
+                    <input type="date" disabled>
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="input-box">
+                    <label>Traveler & Class</label>
+                    <input type="text" value="1 Guest">
+                  </div>
+                </div>
+
+                <div class="col-md-2 text-end">
+                  <button class="btn btn-primary search-btn" onclick="goToFlightSearch()">
+                    <i class="bi bi-search"></i> Search
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <!-- /* main page, search panel, banner background end here  */ -->
+
+
+  <!-- Recent Search Section start here  -->
+  <section class="recent-search py-3 scroll-animate">
+    <div class="container text-center">
+      <h2 class="section-title">Recent Search</h2>
+      <p class="section-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <div class="row justify-content-center mt-4 g-4">
+
+        <!-- Card 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="flight-card">
+            <div class="card-header-custom">
+              <img src="../images/icons/flight.png" alt="flight Icon">
+              <span>Flight Details</span>
+            </div>
+
+            <div class="card-body-custom text-center">
+              <img src="../images/flightDetailsProfileIcon.svg" class="map-img" alt="">
+              <h6 class="flight-title mt-3">Flights from Bengaluru to Dubai</h6>
+              <p class="flight-time">Thu, 28 Dec 2024, 07:12 AM</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate 3 more cards -->
+        <div class="col-lg-3 col-md-6">
+          <div class="flight-card">
+            <div class="card-header-custom">
+              <!-- <i class="bi bi-airplane"></i> -->
+              <img src="../images/icons/flight.png" alt="flight Icon">
+              <span>Flight Details</span>
+            </div>
+            <div class="card-body-custom text-center">
+              <img src="../images/flightDetailsProfileIcon.svg" class="map-img" alt="">
+              <h6 class="flight-title mt-3">Flights from Bengaluru to Dubai</h6>
+              <p class="flight-time">Thu, 28 Dec 2024, 07:12 AM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="flight-card">
+            <div class="card-header-custom">
+              <img src="../images/icons/flight.png" alt="flight Icon">
+              <span>Flight Details</span>
+            </div>
+            <div class="card-body-custom text-center">
+              <img src="../images/flightDetailsProfileIcon.svg" class="map-img" alt="">
+              <h6 class="flight-title mt-3">Flights from Bengaluru to Dubai</h6>
+              <p class="flight-time">Thu, 28 Dec 2024, 07:12 AM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="flight-card">
+            <div class="card-header-custom">
+              <img src="../images/icons/flight.png" alt="flight Icon">
+              <span>Flight Details</span>
+            </div>
+            <div class="card-body-custom text-center">
+              <img src="../images/flightDetailsProfileIcon.svg" class="map-img" alt="">
+              <h6 class="flight-title mt-3">Flights from Bengaluru to Dubai</h6>
+              <p class="flight-time">Thu, 28 Dec 2024, 07:12 AM</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- recent-search section end here  -->
+
+
+  <!-- travel Pros Sections start -->
+  <section class="travel-pros py-5 scroll-animate">
+    <div class="container text-center">
+      <h2 class="tp-title">Travel Pros</h2>
+      <p class="tp-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <div class="row justify-content-center mt-5 g-4">
+
+        <!-- Card 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="tp-card">
+            <img src="../images/realTripAssistance.svg" class="tp-img" alt="real trip assistance">
+            <h5 class="tp-card-title">Real-Time Trip Assistance</h5>
+            <p class="tp-card-text">help travelers adjust plans instantly during their journey.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="tp-card">
+            <img src="../images/travelOption.svg" class="tp-img" alt="">
+            <h5 class="tp-card-title">Flexible Travel Options</h5>
+            <p class="tp-card-text">help travelers adjust plans instantly during their journey.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="tp-card">
+            <img src="../images/explore.svg" class="tp-img" alt="">
+            <h5 class="tp-card-title">Explore</h5>
+            <p class="tp-card-text">help travelers adjust plans instantly during their journey.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="tp-card">
+            <img src="../images/trips.png" class="tp-img" alt="">
+            <h5 class="tp-card-title">Trips</h5>
+            <p class="tp-card-text">help travelers adjust plans instantly during their journey.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- travel Pros Sections end -->
+
+
+  <!-- Best packages destinations start here  -->
+  <div class="container text-center scroll-animate">
+    <h2 class="bp-title">Best Package Destinations</h2>
+    <p class="bp-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+    <!-- Category Pills -->
+    <div class="bp-tabs d-flex justify-content-center gap-3 mt-4" role="tablist">
+      <button class="bp-pill active" data-bs-toggle="tab" data-bs-target="#family" type="button"
+        role="tab">Family</button>
+      <button class="bp-pill" data-bs-toggle="tab" data-bs-target="#ski" type="button" role="tab">Ski</button>
+      <button class="bp-pill" data-bs-toggle="tab" data-bs-target="#culture" type="button" role="tab">Culture</button>
+      <button class="bp-pill" data-bs-toggle="tab" data-bs-target="#sea" type="button" role="tab">Sea</button>
+      <button class="bp-pill" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab">Friends</button>
+    </div>
+
+    <!-- TAB CONTENT -->
+    <div class="tab-content mt-5">
+
+      <!-- FAMILY TAB -->
+      <div class="tab-pane fade show active" id="family" role="tabpanel">
+        <div class="row justify-content-center g-5">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="bp-card">
+              <img src="../images/dubai.jpg" class="bp-img" alt="">
+              <h5 class="bp-name">Dubai</h5>
+              <p class="bp-desc">Average nightly price</p>
+              <p class="bp-price">₹892</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="bp-card">
+              <img src="../images/mecoco.jpg" class="bp-img" alt="">
+              <h5 class="bp-name">Moscow</h5>
+              <p class="bp-desc">Average nightly price</p>
+              <p class="bp-price">₹654</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="bp-card">
+              <img src="../images/londan.jpg" class="bp-img" alt="">
+              <h5 class="bp-name">London</h5>
+              <p class="bp-desc">Average nightly price</p>
+              <p class="bp-price">₹687</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="bp-card">
+              <img src="../images/switzerland.jpg" class="bp-img" alt="">
+              <h5 class="bp-name">Switzerland</h5>
+              <p class="bp-desc">Average nightly price</p>
+              <p class="bp-price">₹984</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OTHER TABS (EMPTY FOR NOW) -->
+      <div class="tab-pane fade" id="ski" role="tabpanel">Ski Packages Coming Soon</div>
+      <div class="tab-pane fade" id="culture" role="tabpanel">Culture Packages Coming Soon</div>
+      <div class="tab-pane fade" id="sea" role="tabpanel">Sea Packages Coming Soon</div>
+      <div class="tab-pane fade" id="friends" role="tabpanel">Friends Packages Coming Soon</div>
+
+    </div>
+  </div>
+
+
+  <!-- <section class="best-packages py-5">
+        <div class="container text-center">
+            <h2 class="bp-title">Best Package Destinations</h2>
+            <p class="bp-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+            <div class="bp-tabs d-flex justify-content-center gap-3 mt-4">
+                <button class="bp-pill active">Family</button>
+                <button class="bp-pill">Ski</button>
+                <button class="bp-pill">Culture</button>
+                <button class="bp-pill">Sea</button>
+                <button class="bp-pill">Friends</button>
+            </div>
+
+            <div class="row justify-content-center mt-5 g-5">
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="bp-card">
+                        <img src="../images/dubai.jpg" class="bp-img" alt="">
+                        <h5 class="bp-name">Dubai</h5>
+                        <p class="bp-desc">Average nightly price</p>
+                        <p class="bp-price">₹892</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="bp-card">
+                        <img src="../images/mecoco.jpg" class="bp-img" alt="">
+                        <h5 class="bp-name">Moscow</h5>
+                        <p class="bp-desc">Average nightly price</p>
+                        <p class="bp-price">₹654</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="bp-card">
+                        <img src="../images/londan.jpg" class="bp-img" alt="">
+                        <h5 class="bp-name">London</h5>
+                        <p class="bp-desc">Average nightly price</p>
+                        <p class="bp-price">₹687</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="bp-card">
+                        <img src="../images/switzerland.jpg" class="bp-img" alt="">
+                        <h5 class="bp-name">Switzerland</h5>
+                        <p class="bp-desc">Average nightly price</p>
+                        <p class="bp-price">₹984</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+  <!-- Best packages destinations end here  -->
+
+
+  <!-- trip ideas from sections start here  -->
+
+  <section class="trip-ideas py-5 scroll-animate">
+    <div class="container text-center">
+      <h2 class="ti-title">Trip Ideas from</h2>
+      <p class="ti-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <!-- Category Pills (kept classes exactly the same) -->
+      <div class="ti-tabs d-flex justify-content-center gap-3 mt-3" role="tablist" aria-label="Trip idea categories">
+        <button class="ti-pill active" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#ti-india"
+          aria-controls="ti-india" aria-selected="true">India</button>
+
+        <button class="ti-pill" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#ti-europe"
+          aria-controls="ti-europe" aria-selected="false">Europe</button>
+
+        <button class="ti-pill" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#ti-africa"
+          aria-controls="ti-africa" aria-selected="false">Africa</button>
+
+        <button class="ti-pill" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#ti-china"
+          aria-controls="ti-china" aria-selected="false">China</button>
+
+        <button class="ti-pill" type="button" role="tab" data-bs-toggle="tab" data-bs-target="#ti-japan"
+          aria-controls="ti-japan" aria-selected="false">Japan</button>
+      </div>
+
+      <div class="tab-content mt-5">
+        <div class="tab-pane fade show active" id="ti-india" role="tabpanel" aria-labelledby="ti-india-tab">
+          <div class="row justify-content-center g-4">
+            <!-- Chennai -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card ti-ch-card">
+                <img src="../images/chennai.jpg" class="ti-img" alt="Chennai">
+                <h5 class="ti-name">Chennai</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <!-- Kashmir -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/kashmir.jpg" class="ti-img" alt="Kashmir">
+                <h5 class="ti-name">Kashmir</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <!-- Jaipur -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/jaipur.jpg" class="ti-img" alt="Jaipur">
+                <h5 class="ti-name">Jaipur</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <!-- Varanasi -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/varanshi.jpg" class="ti-img" alt="Varanasi">
+                <h5 class="ti-name">Varanasi</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card ti-ch-card">
+                <img src="../images/chennai.jpg" class="ti-img" alt="Chennai">
+                <h5 class="ti-name">Chennai</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/kashmir.jpg" class="ti-img" alt="Kashmir">
+                <h5 class="ti-name">Kashmir</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/jaipur.jpg" class="ti-img" alt="Jaipur">
+                <h5 class="ti-name">Jaipur</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/varanshi.jpg" class="ti-img" alt="Varanasi">
+                <h5 class="ti-name">Varanasi</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card ti-ch-card">
+                <img src="../images/chennai.jpg" class="ti-img" alt="Chennai">
+                <h5 class="ti-name">Chennai</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/kashmir.jpg" class="ti-img" alt="Kashmir">
+                <h5 class="ti-name">Kashmir</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/jaipur.jpg" class="ti-img" alt="Jaipur">
+                <h5 class="ti-name">Jaipur</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="ti-card">
+                <img src="../images/varanshi.jpg" class="ti-img" alt="Varanasi">
+                <h5 class="ti-name">Varanasi</h5>
+                <span>
+                  <p class="ti-text">Round trip from</p>
+                  <p class="ti-price">₹4,800</p>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- EUROPE - placeholder content (keep your classes if you add cards later) -->
+        <div class="tab-pane fade" id="ti-europe" role="tabpanel" aria-labelledby="ti-europe-tab">
+          <div class="row justify-content-center g-4">
+            <div class="col-12">
+              <p>Europe trip ideas will appear here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFRICA -->
+        <div class="tab-pane fade" id="ti-africa" role="tabpanel" aria-labelledby="ti-africa-tab">
+          <div class="row justify-content-center g-4">
+            <div class="col-12">
+              <p>Africa trip ideas will appear here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHINA -->
+        <div class="tab-pane fade" id="ti-china" role="tabpanel" aria-labelledby="ti-china-tab">
+          <div class="row justify-content-center g-4">
+            <div class="col-12">
+              <p>China trip ideas will appear here.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- JAPAN -->
+        <div class="tab-pane fade" id="ti-japan" role="tabpanel" aria-labelledby="ti-japan-tab">
+          <div class="row justify-content-center g-4">
+            <div class="col-12">
+              <p>Japan trip ideas will appear here.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ section start here  -->
+  <section class="faq-section py-5 scroll-animate">
+    <div class="container text-center">
+
+      <h2 class="faq-title">Find quick answers to all your travel queries in our FAQ section</h2>
+      <p class="faq-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <div class="row mt-5 faq_sections_seperator">
+
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5">
+
+          <!-- Faq Item 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">How do I book a trip on your website?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              You can easily book any trip through our website by selecting the destination,
+              choosing travel dates and making an online payment.
+            </div>
+          </div>
+
+          <!-- Faq Item 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">What payment methods do you accept?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              We accept UPI, credit/debit cards, net banking and selected wallet payments.
+            </div>
+          </div>
+
+          <!-- Faq Item 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">Do I need travel insurance?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Travel insurance is optional but highly recommended for safety and protection.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="col-lg-5">
+
+          <!-- Faq Item 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">Can I customize my travel package?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Yes, you can customize hotels, activities and travel schedules based on your needs.
+            </div>
+          </div>
+
+          <!-- Faq Item 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">Will I receive a confirmation after booking?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              You will receive an instant confirmation via email and SMS.
+            </div>
+          </div>
+
+          <!-- Faq Item 6 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              <span class="faq-text">What is your cancellation policy?</span>
+              <span class="faq-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+            </button>
+            <div class="faq-answer">
+              Our cancellation policy varies by package. Please check the details while booking.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- FAQ section end here  -->
+
+
+
+  <!-- Flights to top cities -->
+  <section class="top-cities-section py-5 scroll-animate">
+    <div class="container text-center">
+      <h2 class="section-title mb-2">Flights to Top Cities</h2>
+      <p class="section-subtitle mb-5">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <div class="row justify-content-center flightCitiesName">
+        <!-- Column 1 -->
+        <div class="col-md-3 col-6 mb-4 text-start cities-col">
+          <!-- <p>Flights to New Delhi</p> -->
+          <!-- <a href="#" class="wave-link">Flights to New Delhi</a> -->
+          <p><a href="#" class="wave-link">Flights to New Delhi</a></p>
+          <p><a href="#" class="wave-link">Flights to kolkata</a></p>
+          <p><a href="#" class="wave-link">Flights to Ahmedabad</a></p>
+          <p><a href="#" class="wave-link">Flights to Goa</a></p>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-md-3 col-6 mb-4 text-start cities-col">
+          <p><a href="#" class="wave-link">Flights to Varanasi </a></p>
+          <p><a href="#" class="wave-link">Flights to kolkata </a></p>
+          <p><a href="#" class="wave-link">Flights to Ahmedabad </a></p>
+          <p><a href="#" class="wave-link">Flights to Goa </a></p>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-md-3 col-6 mb-4 text-start cities-col">
+          <p><a href="#" class="wave-link">Flights to Varanasi </a></p>
+          <p><a href="#" class="wave-link">Flights to kolkata </a></p>
+          <p><a href="#" class="wave-link">Flights to Ahmedabad </a></p>
+          <p><a href="#" class="wave-link">Flights to Goa </a></p>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="col-md-3 col-6 mb-4 text-start cities-col">
+          <p><a href="#" class="wave-link">Flights to Varanasi </a></p>
+          <p><a href="#" class="wave-link">Flights to kolkata </a></p>
+          <p><a href="#" class="wave-link">Flights to Ahmedabad </a></p>
+          <p><a href="#" class="wave-link">Flights to Goa </a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- old -->
+  <section class="top-cities py-5 hide">
+    <div class="container text-center">
+      <h2 class="tc-title">Flights to Top Cities</h2>
+      <p class="tc-subtitle">Lorem Ipsum is simply dummy text of the printing</p>
+
+      <div class="row justify-content-center mt-4">
+
+        <!-- Column 1 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <p class="tc-link">Flights to New Delhi</p>
+          <p class="tc-link">Flights to kolkata</p>
+          <p class="tc-link">Flights to Ahmedabad</p>
+          <p class="tc-link">Flights to Goa</p>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <p class="tc-link">Flights to Varanasi</p>
+          <p class="tc-link">Flights to kolkata</p>
+          <p class="tc-link">Flights to Ahmedabad</p>
+          <p class="tc-link">Flights to Goa</p>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <p class="tc-link">Flights to Varanasi</p>
+          <p class="tc-link">Flights to kolkata</p>
+          <p class="tc-link">Flights to Ahmedabad</p>
+          <p class="tc-link">Flights to Goa</p>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <p class="tc-link">Flights to Bangalore</p>
+          <p class="tc-link">Flights to kolkata</p>
+          <p class="tc-link">Flights to Ahmedabad</p>
+          <p class="tc-link">Flights to Goa</p>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="col-lg-2 col-md-4 col-sm-6">
+          <p class="tc-link">Flights to Mumbai</p>
+          <p class="tc-link">Flights to kolkata</p>
+          <p class="tc-link">Flights to Ahmedabad</p>
+          <p class="tc-link">Flights to Goa</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer sections start here  -->
+  <footer class="footer-section scroll-animate">
+    <div class="container">
+
+      <div class="row align-items-start">
+
+        <!-- Logo & Address -->
+        <div class="col-md-3 text-center mb-4">
+          <img src="../images/logo.png" class="footer-logo" alt="Logo">
+          <p class="footer-address mt-3">
+            #65/3/A6, Floor no.3,<br>
+            Bengaluru, Karnataka
+          </p>
+        </div>
+
+        <!-- About Us -->
+        <div class="col-md-2 mb-4">
+          <h5 class="footer-title">About Us</h5>
+          <ul class="footer-links">
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Testimonials</a></li>
+          </ul>
+        </div>
+
+        <!-- Explore -->
+        <div class="col-md-2 mb-4">
+          <h5 class="footer-title">Explore</h5>
+          <ul class="footer-links">
+            <li><a href="#">Cars</a></li>
+            <li><a href="#">Flights</a></li>
+            <li><a href="#">Hotels</a></li>
+            <li><a href="#">Holidays</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="col-md-2 mb-4">
+          <h5 class="footer-title">Legal</h5>
+          <ul class="footer-links">
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">User Agreement</a></li>
+            <li><a href="#">Disclaimer Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- App Buttons -->
+        <div class="col-md-3 text-center mb-4">
+          <h5 class="footer-title mb-3">Download Mobile App On</h5>
+          <div class="store-buttons">
+            <a href="#" class="store-btn">
+              <img src="../images/playstore.png" class="store-icon" alt="">
+              <span>Play Store</span>
+            </a>
+
+            <a href="#" class="store-btn">
+              <img src="../images/appstore.png" class="store-icon" alt="">
+              <span>App Store</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <hr class="footer-line">
+
+      <!-- Bottom Row -->
+      <div class="bottom-row d-flex justify-content-between align-items-center">
+        <p class="footer-copy">© 2025 trip.com All rights reserved.</p>
+
+        <!-- <div class="footer-social"> -->
+        <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a> -->
+        <ul class="social-media-icon">
+          <li><a href="#"><i class="fab fa-instagram icon"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter icon"></i></a></li>
+          <li><a href="#"><i class="fab fa-facebook-f icon"></i> </a></li>
+          <li><a href="#"><i class="fab fa-youtube icon"></i></a></li>
+        </ul>
+        <!-- </div> -->
+
+      </div>
+
+    </div>
+  </footer>
+  <!-- ayush -->
+
+  <!-- old  -->
+  <footer class="footer-section hide">
+    <div class="container">
+
+      <div class="row pt-5 pb-4 align-items-start">
+
+        <!-- Logo + Address -->
+        <div class="col-lg-3 text-center text-lg-start mb-4">
+          <img src="https://i.ibb.co/kJ0mtjq/blue-logo.png" class="footer-logo" alt="logo">
+
+          <p class="footer-address">
+            #65/3/A6, Floor no.3,<br>
+            Bengaluru, Karnataka
+          </p>
+        </div>
+
+        <!-- About Us -->
+        <div class="col-lg-2 mb-4">
+          <h5 class="footer-heading">About Us</h5>
+          <ul class="footer-links">
+            <li>Team</li>
+            <li>Contact Us</li>
+            <li>Company</li>
+            <li>Testimonials</li>
+          </ul>
+        </div>
+
+        <!-- Explore -->
+        <div class="col-lg-2 mb-4">
+          <h5 class="footer-heading">Explore</h5>
+          <ul class="footer-links">
+            <li>Cars</li>
+            <li>Flights</li>
+            <li>Hotels</li>
+            <li>Holidays</li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="col-lg-2 mb-4">
+          <h5 class="footer-heading">Legal</h5>
+          <ul class="footer-links">
+            <li>Terms & Conditions</li>
+            <li>Privacy Policy</li>
+            <li>User Agreement</li>
+            <li>Disclaimer Policy</li>
+          </ul>
+        </div>
+
+        <!-- Mobile Apps -->
+        <div class="col-lg-3 text-center text-lg-end mb-4">
+          <h5 class="footer-heading">Download Mobile App On</h5>
+
+          <!-- Google Play -->
+          <a href="#" class="app-btn google-btn">
+            <i class="fab fa-google-play"></i>
+            <span>Play Store</span>
+          </a>
+
+          <!-- App Store -->
+          <a href="#" class="app-btn apple-btn">
+            <i class="fab fa-apple"></i>
+            <span>App Store</span>
+          </a>
+        </div>
+      </div>
+
+      <hr class="footer-line">
+
+      <!-- Copyright + Social -->
+      <div class="row pb-4">
+        <div class="col-lg-6 text-center text-lg-start">
+          <p class="copyright">© 2025 trip.com All rights reserved.</p>
+        </div>
+
+        <div class="col-lg-6 text-center text-lg-end">
+          <div class="social-icons">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- search panel script  -->
+  <script>
+    function openFromPopup() {
+      document.getElementById("fromPopup").classList.add("active");
+      document.getElementById("blurOverlay").classList.add("active");
+
+      document.querySelector("#fromPopup input").focus();
+    }
+
+    // Close popup on outside click
+    document.getElementById("blurOverlay").addEventListener("click", () => {
+      document.getElementById("fromPopup").classList.remove("active");
+      document.getElementById("blurOverlay").classList.remove("active");
+    });
+  </script>
+
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
+  <!-- scripts start here  -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./java script/index.js"></script>
+  <script src="./java script/flightSearch.js"></script>
+  <script src="./java script/search_result.js"></script>
+  <script src="./java script/main.js"></script>
+
+  <!-- scripts start here  -->
+
+  <script>
+    gsap.set(".cursor-dot", { scale: 0.1 });
+    gsap.set(".cursor-outline", { scale: 0.5 });
+
+    document.addEventListener("mousemove", mouseMove);
+
+    let xCTo = gsap.quickTo(".cursor-outline", "left", { duration: 0.2 });
+    let yCTo = gsap.quickTo(".cursor-outline", "top", { duration: 0.2 });
+
+    let xDTo = gsap.quickTo(".cursor-dot", "left", { duration: 0.6 });
+    let yDTo = gsap.quickTo(".cursor-dot", "top", { duration: 0.6 });
+
+    let isVisible = false;
+
+    function mouseMove(e) {
+      if (!isVisible) {
+        gsap.set(".cursor-outline, .cursor-dot", { opacity: 1 });
+        isVisible = true;
+      }
+
+      xCTo(e.clientX);
+      yCTo(e.clientY);
+      xDTo(e.clientX);
+      yDTo(e.clientY);
+    }
+
+    let targets = gsap.utils.toArray("");
+
+    let scaleAnim = gsap.timeline({ paused: true });
+
+    scaleAnim
+      .to(".cursor-outline", { scale: 1 })
+      .to(".cursor-dot", { scale: 1, duration: 0.35 }, 0);
+
+    targets.forEach((target) => {
+      target.addEventListener("mouseenter", () => scaleAnim.play());
+      target.addEventListener("mouseleave", () => scaleAnim.reverse());
+    });
+  </script>
+  <script>
+  gsap.from('.top-bar',{y:-20,opacity:0,duration:1});
+  gsap.from('.product-tab',{y:40,opacity:0,stagger:.15,duration:1,delay:.2});
+  gsap.from('.search-wrapper',{y:70,opacity:0,duration:1,delay:.5,ease:'power4.out'});
+  gsap.from('.hero h1',{x:60,opacity:0,duration:1,delay:.7});
+
+  // Calendar toggle
+  document.querySelectorAll('.date').forEach(el=>{
+    el.addEventListener('click',()=>{
+      document.getElementById('calendar').style.display='block';
+    })
+  });
+</script>
+</body>
+
+</html>

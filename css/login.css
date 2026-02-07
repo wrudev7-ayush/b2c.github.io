@@ -1,0 +1,1284 @@
+
+        :root {
+            --primary-green: #294172;
+            --primary-green-hover: #f47423;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --border-color: #e5e7eb;
+            --bg-light: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        /* Main Card */
+        .login-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Panel */
+        .promo-panel {
+            background-color: var(--bg-light);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 450px;
+        }
+
+        /* Decorative circles */
+        .promo-panel::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 4rem;
+            height: 4rem;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .promo-panel::after {
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 6rem;
+            height: 6rem;
+            background: rgba(34, 197, 94, 0.05);
+            border-radius: 50%;
+        }
+
+        /* Illustration Container */
+        .illustration-container {
+            position: relative;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .illustration-container svg {
+            width: 160px;
+            height: 160px;
+        }
+
+        /* panel section addition some code  */
+        /* === IMAGE CAROUSEL BACKGROUND (ADD-ON) === */
+
+        .promo-panel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-bg-carousel {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .promo-bg-carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 6s ease;
+            transform: scale(1.1);
+        }
+
+        .promo-bg-carousel img.active {
+            opacity: 0.25;
+            /* light background */
+            transform: scale(1);
+        }
+
+        /* keep your content above images */
+        .illustration-container,
+        .slide-content,
+        .pagination-dots {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            color: #fbbf24;
+            font-size: 1.25rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: -5px;
+            right: 5px;
+            font-size: 1rem;
+            animation-delay: 0.3s;
+        }
+
+        .sparkle-3 {
+            bottom: 20px;
+            left: -20px;
+            font-size: 0.875rem;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-4 {
+            bottom: -5px;
+            right: 15px;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        /* Slide Content */
+        .slide-content {
+            text-align: center;
+            position: relative;
+            height: 120px;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .slide p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Pagination Dots */
+        .pagination-dots {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #d1d5db;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 8px;
+        }
+
+        .dot.active {
+            width: 32px;
+            background-color: var(--primary-green);
+        }
+
+        .dot:hover:not(.active) {
+            background-color: #9ca3af;
+        }
+
+        /* Right Panel - Container for both screens */
+        .login-panel {
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Screen containers */
+        .screen {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .screen-main {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .screen-main.hidden {
+            opacity: 0;
+            transform: translateX(-100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-email {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-email.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Logo */
+        .logo {
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+
+        .logo a img {
+            width: 230px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .logo svg {
+            height: 40px;
+        }
+
+        /* Buttons */
+        .btn-email {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.6s ease 0.1s both;
+        }
+
+        .btn-email:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-email:active {
+            transform: translateY(0);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.6s ease 0.2s both;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Social Buttons */
+        .btn-social {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn-social:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-social:active {
+            transform: translateY(0);
+        }
+
+        .btn-facebook {
+            animation: slideUp 0.6s ease 0.3s both;
+        }
+
+        .btn-google {
+            animation: slideUp 0.6s ease 0.4s both;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Terms */
+        .terms {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            max-width: 320px;
+            line-height: 1.6;
+            animation: slideUp 0.6s ease 0.5s both;
+        }
+
+        .terms a {
+            color: var(--primary-green);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .terms a:hover {
+            color: var(--primary-green-hover);
+        }
+
+        /* ========== EMAIL LOGIN SCREEN STYLES ========== */
+
+        /* Back Button */
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            color: var(--primary-green);
+            transform: translateX(-3px);
+            font-size: 16px;
+        }
+
+        .btn-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Email Screen Heading */
+        .email-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Email Input */
+        .form-group {
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .email-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        /* Send Login Link Button */
+        .btn-send-link {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-send-link:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-send-link:active {
+            transform: translateY(0);
+        }
+
+        /* Login with Password Button */
+        .btn-password {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-password:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-password:active {
+            transform: translateY(0);
+        }
+
+        /* Social Icons (Circle buttons) */
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #294172;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-social-icon:active {
+            transform: translateY(0);
+        }
+
+        .btn-social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Email screen divider */
+        .divider-email {
+            animation: none;
+        }
+
+        /* ========== PASSWORD LOGIN SCREEN STYLES ========== */
+
+        .screen-password {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-password.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .password-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Email Display with Checkmark */
+        .email-display {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .email-display-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .email-checkmark {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-green);
+        }
+
+        /* Password Input */
+        .password-input {
+            width: 100%;
+            padding: 0.875rem 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .password-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary-green);
+        }
+
+        .password-input.error {
+            border-bottom-color: #ef4444;
+        }
+
+        /* Forgot Password Link */
+        .forgot-password {
+            display: block;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            margin-top: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            font-size: 0.875rem;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--primary-green-hover);
+        }
+
+        /* Login Button */
+        .btn-login {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        /* Create Account Button */
+        .btn-create-account {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-create-account:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-create-account:active {
+            transform: translateY(0);
+        }
+
+        /* ========== SIGN UP SCREEN STYLES ========== */
+
+        .screen-signup {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-signup.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .signup-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Signup Form Inputs */
+        .signup-input {
+            width: 100%;
+            padding: 0.875rem 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .signup-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary-green);
+        }
+
+        .signup-input.error {
+            border-bottom-color: #ef4444;
+        }
+
+        /* Password Helper Text */
+        .password-helper {
+            font-size: 0.75rem;
+            color: #b45309;
+            margin-bottom: 1rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.5;
+            position: relative;
+            bottom: 25px;
+        }
+
+        /* Continue Button */
+        .btn-continue {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-continue:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-continue:active {
+            transform: translateY(0);
+        }
+
+        /* ========== FORGOT PASSWORD SCREEN STYLES ========== */
+
+        .screen-forgot {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-forgot.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .forgot-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .forgot-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* Forgot Email Display with Checkmark */
+        .forgot-email-display {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .forgot-email-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        /* Send Reset Link Button */
+        .btn-reset-link {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-reset-link:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-reset-link:active {
+            transform: translateY(0);
+        }
+
+        /* Continue to login link */
+        .login-link-container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            width: 100%;
+            max-width: 320px;
+            justify-content: center;
+        }
+
+        .login-link-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .login-link {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .login-link:hover {
+            color: var(--primary-green);
+        }
+
+        /* ========== CHECK INBOX SCREEN STYLES ========== */
+
+        .screen-inbox {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-inbox.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Mailbox Illustration */
+        .mailbox-illustration {
+            width: 120px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .inbox-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .inbox-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .inbox-description strong {
+            color: var(--text-dark);
+        }
+
+        /* Didn't receive email text */
+        .no-email-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        /* Resend Email Button */
+        .btn-resend {
+            width: 100%;
+            max-width: 320px;
+            background-color: #9ca3af;
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-resend.enabled {
+            background-color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        .btn-resend.enabled:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-resend.enabled:active {
+            transform: translateY(0);
+        }
+
+        /* Countdown Timer */
+        .countdown-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .countdown-text span {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Login with password link */
+        .password-login-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            justify-content: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .password-login-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .password-login-text a {
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .password-login-text a:hover {
+            color: var(--primary-green);
+        }
+
+        /* ========== ALMOST THERE SCREEN STYLES ========== */
+
+        .screen-almost {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-almost.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .almost-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .almost-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .almost-note {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* ========== LOGIN LINK INBOX SCREEN STYLES ========== */
+
+        .screen-login-inbox {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-login-inbox.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .login-card {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .promo-panel,
+            .login-panel {
+                flex: 1;
+                padding: 3rem;
+                padding-top: 2rem;
+            }
+
+            .promo-panel {
+                min-height: 600px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .login-card {
+                border-radius: 1rem;
+            }
+
+            .promo-panel {
+                min-height: 380px;
+                padding: 2rem 1.5rem;
+            }
+
+            .login-panel {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide h2 {
+                font-size: 1.25rem;
+            }
+
+            .slide p {
+                font-size: 0.8125rem;
+            }
+
+            .illustration-container svg {
+                width: 130px;
+                height: 130px;
+            }
+
+            .email-heading {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Pulse animation for circles */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Shake animation for input validation */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.3s ease;
+        }
+
+        .email-input.error {
+            border-color: #ef4444;
+        }
+
+        /* === IMAGE CAROUSEL ABOVE CONTENT === */
+
+        .image-carousel {
+            position: relative;
+            width: 286px;
+            height: 286px;
+            margin-bottom: 2rem;
+        }
+
+        .carousel-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .carousel-img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .mail-box-icon {
+            width: 165px;
+            height: 165px;
+        }
+        .login-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    animation: fadeOverlay 0.4s ease;
+}
+
+@keyframes fadeOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* make your card behave like modal */
+.login-card {
+    max-height: 95vh;
+    overflow-y: auto;
+}

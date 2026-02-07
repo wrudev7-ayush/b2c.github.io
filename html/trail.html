@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hymper - Login</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #294172;
+            --primary-green-hover: #f47423;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --border-color: #e5e7eb;
+            --bg-light: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        /* Main Card */
+        .login-card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            max-width: 900px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Panel */
+        .promo-panel {
+            background-color: var(--bg-light);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 450px;
+        }
+
+        /* Decorative circles */
+        .promo-panel::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 4rem;
+            height: 4rem;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .promo-panel::after {
+            content: '';
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            width: 6rem;
+            height: 6rem;
+            background: rgba(34, 197, 94, 0.05);
+            border-radius: 50%;
+        }
+
+        /* Illustration Container */
+        .illustration-container {
+            position: relative;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .illustration-container svg {
+            width: 160px;
+            height: 160px;
+        }
+
+        /* panel section addition some code  */
+        /* === IMAGE CAROUSEL BACKGROUND (ADD-ON) === */
+
+        .promo-panel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-bg-carousel {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .promo-bg-carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 6s ease;
+            transform: scale(1.1);
+        }
+
+        .promo-bg-carousel img.active {
+            opacity: 0.25;
+            /* light background */
+            transform: scale(1);
+        }
+
+        /* keep your content above images */
+        .illustration-container,
+        .slide-content,
+        .pagination-dots {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            color: #fbbf24;
+            font-size: 1.25rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: -5px;
+            right: 5px;
+            font-size: 1rem;
+            animation-delay: 0.3s;
+        }
+
+        .sparkle-3 {
+            bottom: 20px;
+            left: -20px;
+            font-size: 0.875rem;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-4 {
+            bottom: -5px;
+            right: 15px;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        /* Slide Content */
+        .slide-content {
+            text-align: center;
+            position: relative;
+            height: 120px;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .slide p {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Pagination Dots */
+        .pagination-dots {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #d1d5db;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 8px;
+        }
+
+        .dot.active {
+            width: 32px;
+            background-color: var(--primary-green);
+        }
+
+        .dot:hover:not(.active) {
+            background-color: #9ca3af;
+        }
+
+        /* Right Panel - Container for both screens */
+        .login-panel {
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Screen containers */
+        .screen {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .screen-main {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .screen-main.hidden {
+            opacity: 0;
+            transform: translateX(-100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-email {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-email.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Logo */
+        .logo {
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease 0.2s both;
+        }
+
+        .logo a img {
+            width: 230px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .logo svg {
+            height: 40px;
+        }
+
+        /* Buttons */
+        .btn-email {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.6s ease 0.1s both;
+        }
+
+        .btn-email:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-email:active {
+            transform: translateY(0);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.6s ease 0.2s both;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .divider span {
+            padding: 0 1rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Social Buttons */
+        .btn-social {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .btn-social:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-social:active {
+            transform: translateY(0);
+        }
+
+        .btn-facebook {
+            animation: slideUp 0.6s ease 0.3s both;
+        }
+
+        .btn-google {
+            animation: slideUp 0.6s ease 0.4s both;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Terms */
+        .terms {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            max-width: 320px;
+            line-height: 1.6;
+            animation: slideUp 0.6s ease 0.5s both;
+        }
+
+        .terms a {
+            color: var(--primary-green);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .terms a:hover {
+            color: var(--primary-green-hover);
+        }
+
+        /* ========== EMAIL LOGIN SCREEN STYLES ========== */
+
+        /* Back Button */
+        .btn-back {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-bottom: 1.5rem;
+            align-self: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            color: var(--primary-green);
+            transform: translateX(-3px);
+            font-size: 16px;
+        }
+
+        .btn-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Email Screen Heading */
+        .email-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Email Input */
+        .form-group {
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .email-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        /* Send Login Link Button */
+        .btn-send-link {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-send-link:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-send-link:active {
+            transform: translateY(0);
+        }
+
+        /* Login with Password Button */
+        .btn-password {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-password:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-password:active {
+            transform: translateY(0);
+        }
+
+        /* Social Icons (Circle buttons) */
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #294172;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .btn-social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-social-icon:active {
+            transform: translateY(0);
+        }
+
+        .btn-social-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Email screen divider */
+        .divider-email {
+            animation: none;
+        }
+
+        /* ========== PASSWORD LOGIN SCREEN STYLES ========== */
+
+        .screen-password {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-password.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .password-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Email Display with Checkmark */
+        .email-display {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .email-display-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .email-checkmark {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-green);
+        }
+
+        /* Password Input */
+        .password-input {
+            width: 100%;
+            padding: 0.875rem 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .password-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary-green);
+        }
+
+        .password-input.error {
+            border-bottom-color: #ef4444;
+        }
+
+        /* Forgot Password Link */
+        .forgot-password {
+            display: block;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            margin-top: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            font-size: 0.875rem;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--primary-green-hover);
+        }
+
+        /* Login Button */
+        .btn-login {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        /* Create Account Button */
+        .btn-create-account {
+            width: 100%;
+            max-width: 320px;
+            background-color: white;
+            color: var(--text-dark);
+            font-weight: 500;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-create-account:hover {
+            background-color: #f9fafb;
+            border-color: #d1d5db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-create-account:active {
+            transform: translateY(0);
+        }
+
+        /* ========== SIGN UP SCREEN STYLES ========== */
+
+        .screen-signup {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-signup.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .signup-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        /* Signup Form Inputs */
+        .signup-input {
+            width: 100%;
+            padding: 0.875rem 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            background-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .signup-input:focus {
+            outline: none;
+            border-bottom-color: var(--primary-green);
+        }
+
+        .signup-input.error {
+            border-bottom-color: #ef4444;
+        }
+
+        /* Password Helper Text */
+        .password-helper {
+            font-size: 0.75rem;
+            color: #b45309;
+            margin-bottom: 1rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.5;
+            position: relative;
+            bottom: 25px;
+        }
+
+        /* Continue Button */
+        .btn-continue {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-continue:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-continue:active {
+            transform: translateY(0);
+        }
+
+        /* ========== FORGOT PASSWORD SCREEN STYLES ========== */
+
+        .screen-forgot {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-forgot.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .forgot-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .forgot-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* Forgot Email Display with Checkmark */
+        .forgot-email-display {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .forgot-email-text {
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        /* Send Reset Link Button */
+        .btn-reset-link {
+            width: 100%;
+            max-width: 320px;
+            background-color: var(--primary-green);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-reset-link:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-reset-link:active {
+            transform: translateY(0);
+        }
+
+        /* Continue to login link */
+        .login-link-container {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            width: 100%;
+            max-width: 320px;
+            justify-content: center;
+        }
+
+        .login-link-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .login-link {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .login-link:hover {
+            color: var(--primary-green);
+        }
+
+        /* ========== CHECK INBOX SCREEN STYLES ========== */
+
+        .screen-inbox {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-inbox.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Mailbox Illustration */
+        .mailbox-illustration {
+            width: 120px;
+            height: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .inbox-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .inbox-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .inbox-description strong {
+            color: var(--text-dark);
+        }
+
+        /* Didn't receive email text */
+        .no-email-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+
+        /* Resend Email Button */
+        .btn-resend {
+            width: 100%;
+            max-width: 320px;
+            background-color: #9ca3af;
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+        }
+
+        .btn-resend.enabled {
+            background-color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        .btn-resend.enabled:hover {
+            background-color: var(--primary-green-hover);
+            box-shadow: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-resend.enabled:active {
+            transform: translateY(0);
+        }
+
+        /* Countdown Timer */
+        .countdown-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .countdown-text span {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Login with password link */
+        .password-login-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            justify-content: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .password-login-text {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .password-login-text a {
+            color: var(--text-dark);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .password-login-text a:hover {
+            color: var(--primary-green);
+        }
+
+        /* ========== ALMOST THERE SCREEN STYLES ========== */
+
+        .screen-almost {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-almost.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .almost-heading {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .almost-description {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        .almost-note {
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            line-height: 1.6;
+        }
+
+        /* ========== LOGIN LINK INBOX SCREEN STYLES ========== */
+
+        .screen-login-inbox {
+            opacity: 0;
+            transform: translateX(100%);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .screen-login-inbox.active {
+            opacity: 1;
+            transform: translateX(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .login-card {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .promo-panel,
+            .login-panel {
+                flex: 1;
+                padding: 3rem;
+                padding-top: 2rem;
+            }
+
+            .promo-panel {
+                min-height: 600px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .login-card {
+                border-radius: 1rem;
+            }
+
+            .promo-panel {
+                min-height: 380px;
+                padding: 2rem 1.5rem;
+            }
+
+            .login-panel {
+                padding: 2rem 1.5rem;
+            }
+
+            .slide h2 {
+                font-size: 1.25rem;
+            }
+
+            .slide p {
+                font-size: 0.8125rem;
+            }
+
+            .illustration-container svg {
+                width: 130px;
+                height: 130px;
+            }
+
+            .email-heading {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Pulse animation for circles */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Shake animation for input validation */
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            75% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.3s ease;
+        }
+
+        .email-input.error {
+            border-color: #ef4444;
+        }
+
+        /* === IMAGE CAROUSEL ABOVE CONTENT === */
+
+        .image-carousel {
+            position: relative;
+            width: 286px;
+            height: 286px;
+            margin-bottom: 2rem;
+        }
+
+        .carousel-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+        }
+
+        .carousel-img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .mail-box-icon {
+            width: 165px;
+            height: 165px;
+        }
+        .login-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    animation: fadeOverlay 0.4s ease;
+}
+
+@keyframes fadeOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* make your card behave like modal */
+.login-card {
+    max-height: 95vh;
+    overflow-y: auto;
+}
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <!-- Left Panel - Promotional Content -->
+        <div class="promo-panel">
+            <!-- Illustration -->
+            <div class="illustration-container image-carousel">
+                <img src="<?= base_url('template/images/exclusive-discount.png') ?>" class="carousel-img active">
+                <img src="<?= base_url('template/images/faster-booking.png') ?>" class="carousel-img">
+                <img src="<?= base_url('template/images/manage-your-booking.png') ?>" class="carousel-img">
+            </div>
+
+
+            <!-- Slide Content -->
+            <div class="slide-content">
+                <div class="slide active" data-slide="0">
+                    <h2>Exclusive Discounts</h2>
+                    <p>Login to enjoy exclusive discounts, early access, personalized recommendations, and a seamless
+                        checkout experience</p>
+                </div>
+                <div class="slide" data-slide="1">
+                    <h2>Easy Booking</h2>
+                    <p>Book flights, hotels, and travel packages with just a few clicks. Your next adventure is just a
+                        tap away</p>
+                </div>
+                <div class="slide" data-slide="2">
+                    <h2>24/7 Support</h2>
+                    <p>Get round-the-clock customer support for all your travel needs. We're here to help you every step
+                        of the way</p>
+                </div>
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="pagination-dots">
+                <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+                <button class="dot" data-index="1" aria-label="Slide 2"></button>
+                <button class="dot" data-index="2" aria-label="Slide 3"></button>
+            </div>
+        </div>
+
+        <!-- Right Panel - Login Options -->
+        <div class="login-panel">
+
+            <!-- SCREEN 1: Main Login Options -->
+            <div class="screen screen-main" id="screenMain">
+                <!-- Hympar Logo -->
+                <!-- <div class="logo">
+                    <h1>hympar</h1>
+                </div> -->
+                <div class="logo-box logo">
+                    <a href="<?= base_url() ?>"><img src="<?= base_url(IMAGEPATH . $settings['logo']) ?>" class=""
+                            alt="<?= base_url($settings['site_name']) ?>"> </a>
+                </div>
+
+                <!-- Continue with Email -->
+                <button class="btn-email" id="btnContinueEmail">Continue with Email</button>
+
+                <!-- Divider -->
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <span>Or</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Facebook Button -->
+                <button class="btn-social btn-facebook">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#1877F2"
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    Continue with Facebook
+                </button>
+
+                <!-- Google Button -->
+                <button class="btn-social btn-google">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path fill="#FBBC05"
+                            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                        <path fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <!-- Terms -->
+                <p class="terms">
+                    By clicking "Continue," you agree to our
+                    <a href="#">Privacy Policy</a> and
+                    <a href="#">Terms & Conditions</a>
+                </p>
+            </div>
+
+            <!-- SCREEN 2: Email Login -->
+            <div class="screen screen-email" id="screenEmail">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBack">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Heading -->
+                <h2 class="email-heading">Login or create an account</h2>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <input type="email" class="email-input" id="emailInput" placeholder="Email address"
+                        autocomplete="email">
+                </div>
+
+                <!-- Send Login Link Button -->
+                <button class="btn-send-link" id="btnSendLink">Send Login Link to Email</button>
+
+                <!-- Login with Password Button -->
+                <button class="btn-password" id="btnPassword">Login with Password</button>
+
+                <!-- Divider -->
+                <div class="divider divider-email">
+                    <div class="divider-line"></div>
+                    <span>Or</span>
+                    <div class="divider-line"></div>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="social-icons">
+                    <button class="btn-social-icon" aria-label="Continue with Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="white"
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </button>
+                    <button class="btn-social-icon" aria-label="Continue with Google">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="white"
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="white"
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="white"
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="white"
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Terms -->
+                <p class="terms">
+                    By clicking "Continue," you agree to our
+                    <a href="#">Privacy Policy</a> and
+                    <a href="#">Terms & Conditions</a>
+                </p>
+            </div>
+
+            <!-- SCREEN 3: Password Login -->
+            <div class="screen screen-password" id="screenPassword">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackToEmail">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Heading -->
+                <h2 class="password-heading">Login with password</h2>
+
+                <!-- Email Display with Checkmark -->
+                <div class="email-display">
+                    <span class="email-display-text" id="displayEmail">test@gmail.com</span>
+                    <svg class="email-checkmark" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                        <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <input type="password" class="password-input" id="passwordInput" placeholder="Password"
+                        autocomplete="current-password">
+                </div>
+
+                <!-- Forgot Password Link -->
+                <a href="#" class="forgot-password">Forgot your password?</a>
+
+                <!-- Login Button -->
+                <button class="btn-login" id="btnLogin">Login</button>
+
+                <!-- Create Account Button -->
+                <button class="btn-create-account" id="btnCreateAccount">Create an Account</button>
+            </div>
+
+            <!-- SCREEN 4: Sign Up -->
+            <div class="screen screen-signup" id="screenSignup">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackToPassword">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Heading -->
+                <h2 class="signup-heading">Sign up with password</h2>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <input type="email" class="signup-input" id="signupEmail" placeholder="Email address"
+                        autocomplete="email">
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <input type="password" class="signup-input" id="signupPassword" placeholder="Password"
+                        autocomplete="new-password">
+                </div>
+
+                <!-- Password Helper Text -->
+                <p class="password-helper">Password must be 8-64 characters. Passwords are case-sensitive.</p>
+
+                <!-- Repeat Password Input -->
+                <div class="form-group">
+                    <input type="password" class="signup-input" id="signupRepeatPassword" placeholder="Repeat password"
+                        autocomplete="new-password">
+                </div>
+
+                <!-- Continue Button -->
+                <button class="btn-continue" id="btnSignupContinue">Continue</button>
+            </div>
+
+            <!-- SCREEN 5: Forgot Password -->
+            <div class="screen screen-forgot" id="screenForgot">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackFromForgot">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Heading -->
+                <h2 class="forgot-heading">Forgot your password?</h2>
+
+                <!-- Description -->
+                <p class="forgot-description">You can easily reset your password here. We'll send the reset link to your
+                    email.</p>
+
+                <!-- Email Display with Checkmark -->
+                <div class="forgot-email-display">
+                    <span class="forgot-email-text" id="forgotDisplayEmail">test@gmail.com</span>
+                    <svg class="email-checkmark" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                        <path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+
+                <!-- Send Reset Link Button -->
+                <button class="btn-reset-link" id="btnSendResetLink">Send Reset Link</button>
+
+                <!-- Continue to login link -->
+                <div class="login-link-container">
+                    <span class="login-link-text">Continue to login?</span>
+                    <a href="#" class="login-link" id="btnBackToLogin">Click here</a>
+                </div>
+            </div>
+
+            <!-- SCREEN 6: Check Inbox -->
+            <div class="screen screen-inbox" id="screenInbox">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackFromInbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Mailbox Illustration -->
+                <img class="mail-box-icon" src="<?= base_url('template/images/checkYourInbox.png') ?>" alt="">
+
+                <!-- Heading -->
+                <h2 class="inbox-heading">Check your inbox</h2>
+
+                <!-- Description -->
+                <p class="inbox-description">
+                    We just sent a password reset link to <strong id="inboxDisplayEmail">test@gmail.com</strong>. Click
+                    on the link in the email to proceed.
+                </p>
+
+                <!-- Didn't receive email -->
+                <p class="no-email-text">Didn't receive an email?</p>
+
+                <!-- Resend Email Button -->
+                <button class="btn-resend" id="btnResendEmail" disabled>Resend email</button>
+
+                <!-- Countdown Timer -->
+                <p class="countdown-text">Resend email <span id="countdownTimer">2:55</span></p>
+
+                <!-- Login with password link -->
+                <div class="password-login-link">
+                    <p class="password-login-text">or login with password? <a href="#" id="btnInboxToPassword">Click
+                            here</a></p>
+                </div>
+            </div>
+
+            <!-- SCREEN 7: Almost There (Email Confirmation after Signup) -->
+            <div class="screen screen-almost" id="screenAlmost">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackFromAlmost">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Mailbox Illustration (reusing same style) -->
+                <!-- ayush here -->
+                <!-- <img src="<?= base_url('template/images/signup-icon.png') ?>" class="carousel-img"> -->
+                <img class="mail-box-icon" src="<?= base_url('template/images/signup-icon.png') ?>" alt="">
+
+                <!-- Heading -->
+                <h2 class="almost-heading">You are almost there!</h2>
+
+                <!-- Description -->
+                <p class="almost-description">
+                    Please confirm your email address to complete your account registration. You are just one step away!
+                </p>
+
+                <!-- Note about spam folder -->
+                <p class="almost-note">
+                    If you can't find the confirmation email in your inbox, please check your spam or trash folder.
+                </p>
+            </div>
+
+            <!-- SCREEN 8: Login Link Inbox -->
+            <div class="screen screen-login-inbox" id="screenLoginInbox">
+                <!-- Back Button -->
+                <button class="btn-back" id="btnBackFromLoginInbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M19 12H5M12 19l-7-7 7-7" />
+                    </svg>
+                    Back
+                </button>
+
+                <!-- Mailbox Illustration -->
+                <img class="mail-box-icon" src="<?= base_url('template/images/checkyourinbox_icon.png') ?>" alt="">
+                <!-- Heading -->
+                <h2 class="inbox-heading">Check your inbox</h2>
+
+                <!-- Description -->
+                <p class="inbox-description">
+                    We just sent a login link to <strong id="loginInboxDisplayEmail">test@gmail.com</strong>. Click on
+                    the link in the email to proceed.
+                </p>
+
+                <!-- Didn't receive email -->
+                <p class="no-email-text">Didn't receive an email?</p>
+
+                <!-- Resend Email Button -->
+                <button class="btn-resend" id="btnResendLoginEmail" disabled>Resend email</button>
+
+                <!-- Countdown Timer -->
+                <p class="countdown-text">Resend email <span id="loginCountdownTimer">2:53</span></p>
+
+                <!-- Login with password link -->
+                <div class="password-login-link">
+                    <p class="password-login-text">or login with password? <a href="#"
+                            id="btnLoginInboxToPassword">Click here</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ===== IMAGE CAROUSEL SYNC WITH TEXT SLIDES =====
+        const carouselImages = document.querySelectorAll('.carousel-img');
+
+        function syncImageWithSlide(index) {
+            carouselImages.forEach((img, i) => {
+                img.classList.remove('active');
+                if (i === index) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        // Hook into your existing showSlide function
+        const oldShowSlide = showSlide;
+        showSlide = function (index) {
+            oldShowSlide(index);
+            syncImageWithSlide(index);
+        };
+
+        // ========== SLIDE FUNCTIONALITY ==========
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let autoSlideInterval;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === index) {
+                    dot.classList.add('active');
+                }
+            });
+
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+                resetAutoSlide();
+            });
+        });
+
+        startAutoSlide();
+
+        // ========== SCREEN SWITCHING ==========
+        const screenMain = document.getElementById('screenMain');
+        const screenEmail = document.getElementById('screenEmail');
+        const screenPassword = document.getElementById('screenPassword');
+        const screenSignup = document.getElementById('screenSignup');
+        const btnContinueEmail = document.getElementById('btnContinueEmail');
+        const btnBack = document.getElementById('btnBack');
+        const btnBackToEmail = document.getElementById('btnBackToEmail');
+        const btnBackToPassword = document.getElementById('btnBackToPassword');
+        const btnPassword = document.getElementById('btnPassword');
+        const btnCreateAccount = document.getElementById('btnCreateAccount');
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const displayEmail = document.getElementById('displayEmail');
+        const btnSendLink = document.getElementById('btnSendLink');
+        const btnLogin = document.getElementById('btnLogin');
+
+        // Signup screen elements
+        const signupEmail = document.getElementById('signupEmail');
+        const signupPassword = document.getElementById('signupPassword');
+        const signupRepeatPassword = document.getElementById('signupRepeatPassword');
+        const btnSignupContinue = document.getElementById('btnSignupContinue');
+
+        // Forgot password screen elements
+        const screenForgot = document.getElementById('screenForgot');
+        const btnBackFromForgot = document.getElementById('btnBackFromForgot');
+        const btnBackToLogin = document.getElementById('btnBackToLogin');
+        const forgotDisplayEmail = document.getElementById('forgotDisplayEmail');
+        const btnSendResetLink = document.getElementById('btnSendResetLink');
+        const forgotPasswordLink = document.querySelector('.forgot-password');
+
+        // Check inbox screen elements
+        const screenInbox = document.getElementById('screenInbox');
+        const btnBackFromInbox = document.getElementById('btnBackFromInbox');
+        const inboxDisplayEmail = document.getElementById('inboxDisplayEmail');
+        const btnResendEmail = document.getElementById('btnResendEmail');
+        const countdownTimer = document.getElementById('countdownTimer');
+        const btnInboxToPassword = document.getElementById('btnInboxToPassword');
+
+        // Countdown variables
+        let countdownInterval = null;
+        let remainingSeconds = 175; // 2:55
+
+        // Almost there screen elements
+        const screenAlmost = document.getElementById('screenAlmost');
+        const btnBackFromAlmost = document.getElementById('btnBackFromAlmost');
+
+        // Login link inbox screen elements
+        const screenLoginInbox = document.getElementById('screenLoginInbox');
+        const btnBackFromLoginInbox = document.getElementById('btnBackFromLoginInbox');
+        const loginInboxDisplayEmail = document.getElementById('loginInboxDisplayEmail');
+        const btnResendLoginEmail = document.getElementById('btnResendLoginEmail');
+        const loginCountdownTimer = document.getElementById('loginCountdownTimer');
+        const btnLoginInboxToPassword = document.getElementById('btnLoginInboxToPassword');
+
+        // Login countdown variables
+        let loginCountdownInterval = null;
+        let loginRemainingSeconds = 173; // 2:53
+
+        // Helper function to hide all screens
+        function hideAllScreens() {
+            screenMain.classList.add('hidden');
+            screenMain.classList.remove('active');
+            screenEmail.classList.remove('active');
+            screenPassword.classList.remove('active');
+            screenSignup.classList.remove('active');
+            screenForgot.classList.remove('active');
+            screenInbox.classList.remove('active');
+            screenAlmost.classList.remove('active');
+            screenLoginInbox.classList.remove('active');
+        }
+
+        // Switch to email screen from main
+        btnContinueEmail.addEventListener('click', () => {
+            hideAllScreens();
+            screenMain.classList.add('hidden');
+            screenEmail.classList.add('active');
+
+            // Focus on email input after transition
+            setTimeout(() => {
+                emailInput.focus();
+            }, 400);
+        });
+
+        // Switch back to main screen from email
+        btnBack.addEventListener('click', () => {
+            screenEmail.classList.remove('active');
+            screenMain.classList.remove('hidden');
+        });
+
+        // Switch to password screen from email
+        btnPassword.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email || !emailRegex.test(email)) {
+                emailInput.classList.add('error', 'shake');
+                setTimeout(() => {
+                    emailInput.classList.remove('shake');
+                }, 300);
+            } else {
+                emailInput.classList.remove('error');
+                // Update email display in password screen
+                displayEmail.textContent = email;
+
+                // Switch screens
+                screenEmail.classList.remove('active');
+                screenPassword.classList.add('active');
+
+                // Focus on password input after transition
+                setTimeout(() => {
+                    passwordInput.focus();
+                }, 400);
+            }
+        });
+
+        // Switch back to email screen from password
+        btnBackToEmail.addEventListener('click', () => {
+            screenPassword.classList.remove('active');
+            screenEmail.classList.add('active');
+
+            setTimeout(() => {
+                emailInput.focus();
+            }, 400);
+        });
+
+        // ========== EMAIL VALIDATION ==========
+        btnSendLink.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email || !emailRegex.test(email)) {
+                emailInput.classList.add('error', 'shake');
+                setTimeout(() => {
+                    emailInput.classList.remove('shake');
+                }, 300);
+            } else {
+                emailInput.classList.remove('error');
+
+                // Update email display in login inbox screen
+                loginInboxDisplayEmail.textContent = email;
+
+                // Reset and start login countdown
+                loginRemainingSeconds = 173;
+                startLoginCountdown();
+
+                // Switch screens
+                screenEmail.classList.remove('active');
+                screenLoginInbox.classList.add('active');
+            }
+        });
+
+        // Remove error state on email input
+        emailInput.addEventListener('input', () => {
+            emailInput.classList.remove('error');
+        });
+
+        // ========== PASSWORD VALIDATION ==========
+        btnLogin.addEventListener('click', () => {
+            const password = passwordInput.value.trim();
+
+            if (!password || password.length < 6) {
+                passwordInput.classList.add('error', 'shake');
+                setTimeout(() => {
+                    passwordInput.classList.remove('shake');
+                }, 300);
+            } else {
+                passwordInput.classList.remove('error');
+                // Here you would typically authenticate the user
+                alert('Login successful! Welcome, ' + displayEmail.textContent);
+            }
+        });
+
+        // Remove error state on password input
+        passwordInput.addEventListener('input', () => {
+            passwordInput.classList.remove('error');
+        });
+
+        // Allow Enter key to submit
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                btnLogin.click();
+            }
+        });
+
+        emailInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                btnSendLink.click();
+            }
+        });
+
+        // ========== SIGN UP SCREEN NAVIGATION ==========
+
+        // Switch to signup screen from password screen
+        btnCreateAccount.addEventListener('click', () => {
+            // Pre-fill email if available
+            signupEmail.value = displayEmail.textContent;
+
+            // Switch screens
+            screenPassword.classList.remove('active');
+            screenSignup.classList.add('active');
+
+            // Focus on password input (email is already filled)
+            setTimeout(() => {
+                signupPassword.focus();
+            }, 400);
+        });
+
+        // Switch back to password screen from signup
+        btnBackToPassword.addEventListener('click', () => {
+            screenSignup.classList.remove('active');
+            screenPassword.classList.add('active');
+
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+
+        // ========== SIGN UP VALIDATION ==========
+        btnSignupContinue.addEventListener('click', () => {
+            const email = signupEmail.value.trim();
+            const password = signupPassword.value;
+            const repeatPassword = signupRepeatPassword.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let hasError = false;
+
+            // Validate email
+            if (!email || !emailRegex.test(email)) {
+                signupEmail.classList.add('error', 'shake');
+                setTimeout(() => signupEmail.classList.remove('shake'), 300);
+                hasError = true;
+            } else {
+                signupEmail.classList.remove('error');
+            }
+
+            // Validate password (8-64 characters)
+            if (!password || password.length < 8 || password.length > 64) {
+                signupPassword.classList.add('error', 'shake');
+                setTimeout(() => signupPassword.classList.remove('shake'), 300);
+                hasError = true;
+            } else {
+                signupPassword.classList.remove('error');
+            }
+
+            // Validate repeat password
+            if (!repeatPassword || repeatPassword !== password) {
+                signupRepeatPassword.classList.add('error', 'shake');
+                setTimeout(() => signupRepeatPassword.classList.remove('shake'), 300);
+                hasError = true;
+            } else {
+                signupRepeatPassword.classList.remove('error');
+            }
+
+            if (!hasError) {
+                // Switch to "Almost There" screen
+                screenSignup.classList.remove('active');
+                screenAlmost.classList.add('active');
+            }
+        });
+
+        // Back from almost there screen
+        btnBackFromAlmost.addEventListener('click', () => {
+            screenAlmost.classList.remove('active');
+            screenSignup.classList.add('active');
+        });
+
+        // Remove error state on signup inputs
+        signupEmail.addEventListener('input', () => signupEmail.classList.remove('error'));
+        signupPassword.addEventListener('input', () => signupPassword.classList.remove('error'));
+        signupRepeatPassword.addEventListener('input', () => signupRepeatPassword.classList.remove('error'));
+
+        // Allow Enter key to submit signup form
+        signupRepeatPassword.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                btnSignupContinue.click();
+            }
+        });
+
+        // ========== FORGOT PASSWORD SCREEN NAVIGATION ==========
+
+        // Switch to forgot password screen from password screen
+        forgotPasswordLink.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Update email display in forgot password screen
+            forgotDisplayEmail.textContent = displayEmail.textContent;
+
+            // Switch screens
+            screenPassword.classList.remove('active');
+            screenForgot.classList.add('active');
+        });
+
+        // Switch back to password screen from forgot password
+        btnBackFromForgot.addEventListener('click', () => {
+            screenForgot.classList.remove('active');
+            screenPassword.classList.add('active');
+
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+
+        // Click here to go back to password login screen
+        btnBackToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            screenForgot.classList.remove('active');
+            screenPassword.classList.add('active');
+
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+
+        // Send reset link button - now navigates to check inbox screen
+        btnSendResetLink.addEventListener('click', () => {
+            const email = forgotDisplayEmail.textContent;
+
+            // Update email display in inbox screen
+            inboxDisplayEmail.textContent = email;
+
+            // Reset and start countdown
+            remainingSeconds = 175;
+            startCountdown();
+
+            // Switch screens
+            screenForgot.classList.remove('active');
+            screenInbox.classList.add('active');
+        });
+
+        // ========== CHECK INBOX SCREEN NAVIGATION ==========
+
+        // Format seconds to MM:SS
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Start countdown timer
+        function startCountdown() {
+            // Reset button state
+            btnResendEmail.disabled = true;
+            btnResendEmail.classList.remove('enabled');
+            btnResendEmail.textContent = 'Resend email';
+
+            // Clear any existing interval
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            // Update timer display
+            countdownTimer.textContent = formatTime(remainingSeconds);
+
+            // Start interval
+            countdownInterval = setInterval(() => {
+                remainingSeconds--;
+                countdownTimer.textContent = formatTime(remainingSeconds);
+
+                if (remainingSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownTimer.textContent = '0:00';
+                    btnResendEmail.disabled = false;
+                    btnResendEmail.classList.add('enabled');
+                }
+            }, 1000);
+        }
+
+        // Back from inbox screen
+        btnBackFromInbox.addEventListener('click', () => {
+            // Clear countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            screenInbox.classList.remove('active');
+            screenForgot.classList.add('active');
+        });
+
+        // Click here to go to password login from inbox
+        btnInboxToPassword.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Clear countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+
+            screenInbox.classList.remove('active');
+            screenPassword.classList.add('active');
+
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+
+        // Resend email button
+        btnResendEmail.addEventListener('click', () => {
+            if (!btnResendEmail.disabled) {
+                const email = inboxDisplayEmail.textContent;
+
+                // Reset countdown
+                remainingSeconds = 175;
+                startCountdown();
+
+                // Show feedback
+                alert('Password reset link resent to ' + email);
+            }
+        });
+
+        // ========== LOGIN LINK INBOX SCREEN NAVIGATION ==========
+
+        // Start login countdown timer
+        function startLoginCountdown() {
+            // Reset button state
+            btnResendLoginEmail.disabled = true;
+            btnResendLoginEmail.classList.remove('enabled');
+            btnResendLoginEmail.textContent = 'Resend email';
+
+            // Clear any existing interval
+            if (loginCountdownInterval) {
+                clearInterval(loginCountdownInterval);
+            }
+
+            // Update timer display
+            loginCountdownTimer.textContent = formatTime(loginRemainingSeconds);
+
+            // Start interval
+            loginCountdownInterval = setInterval(() => {
+                loginRemainingSeconds--;
+                loginCountdownTimer.textContent = formatTime(loginRemainingSeconds);
+
+                if (loginRemainingSeconds <= 0) {
+                    clearInterval(loginCountdownInterval);
+                    loginCountdownTimer.textContent = '0:00';
+                    btnResendLoginEmail.disabled = false;
+                    btnResendLoginEmail.classList.add('enabled');
+                }
+            }, 1000);
+        }
+
+        // Back from login inbox screen
+        btnBackFromLoginInbox.addEventListener('click', () => {
+            // Clear countdown
+            if (loginCountdownInterval) {
+                clearInterval(loginCountdownInterval);
+            }
+
+            screenLoginInbox.classList.remove('active');
+            screenEmail.classList.add('active');
+        });
+
+        // Click here to go to password login from login inbox
+        btnLoginInboxToPassword.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            // Clear countdown
+            if (loginCountdownInterval) {
+                clearInterval(loginCountdownInterval);
+            }
+
+            // Update email display for password screen
+            displayEmail.textContent = loginInboxDisplayEmail.textContent;
+
+            screenLoginInbox.classList.remove('active');
+            screenPassword.classList.add('active');
+
+            setTimeout(() => {
+                passwordInput.focus();
+            }, 400);
+        });
+
+        // Resend login email button
+        btnResendLoginEmail.addEventListener('click', () => {
+            if (!btnResendLoginEmail.disabled) {
+                const email = loginInboxDisplayEmail.textContent;
+
+                // Reset countdown
+                loginRemainingSeconds = 173;
+                startLoginCountdown();
+
+                // Show feedback
+                alert('Login link resent to ' + email);
+            }
+        });
+
+        // ========== BUTTON RIPPLE EFFECT ==========
+        const buttons = document.querySelectorAll('button:not(.dot)');
+        buttons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+
+    <script>
+        // ===== CONVERT ENTIRE LOGIN PAGE INTO POPUP (ADD ONLY) =====
+
+window.addEventListener('load', () => {
+    const loginCard = document.querySelector('.login-card');
+
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'login-popup-overlay';
+
+    // Insert overlay before login card
+    loginCard.parentNode.insertBefore(overlay, loginCard);
+
+    // Move login card inside overlay
+    overlay.appendChild(loginCard);
+
+    // Optional: close popup if clicked outside card
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+    </script>
+</body>
+
+</html>

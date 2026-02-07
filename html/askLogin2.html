@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flight Booking – Editorial UI</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./index.css">
+   
+</head>
+<body>
+
+<div class="container-fluid px-5 py-5">
+
+  <div class="row gx-5">
+
+    <!-- LEFT PANEL -->
+    <div class="col-lg-8">
+
+      <section class="paper-card reveal">
+        <p class="section-label">Flight Overview</p>
+
+        <h1 class="route">
+          Bangalore <span>→</span> Delhi
+        </h1>
+
+        <div class="flight-meta">
+          <div>
+            <small>Airline</small>
+            <p>Akasa Air · QP 1823</p>
+          </div>
+          <div>
+            <small>Departure</small>
+            <p>07:40 · BLR</p>
+          </div>
+          <div class="divider-line"></div>
+          <div>
+            <small>Arrival</small>
+            <p>10:50 · DEL</p>
+          </div>
+          <div>
+            <small>Duration</small>
+            <p>3h 10m · Non-Stop</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="paper-card reveal delay-1">
+        <p class="section-label">Passenger Details</p>
+
+        <div class="row gy-4">
+          <div class="col-md-6">
+            <input class="neo-input" placeholder="Email address">
+          </div>
+          <div class="col-md-6">
+            <button class="neo-btn w-100">
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="col-md-4">
+            <select class="neo-input">
+              <option>India +91</option>
+            </select>
+          </div>
+          <div class="col-md-8">
+            <input class="neo-input" placeholder="Mobile number">
+          </div>
+        </div>
+
+        <button class="cta-btn mt-5" onclick="goToBookingContinue()" type="button">
+          Book as Guest
+        </button>
+      </section>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="col-lg-4">
+
+      <aside class="summary-card reveal delay-2">
+        <div class="countdown">18:59</div>
+
+        <h3>Fare Summary</h3>
+
+        <div class="price-row">
+          <span>Base Fare</span>
+          <strong>SAR 175.44</strong>
+        </div>
+
+        <div class="price-row">
+          <span>Taxes</span>
+          <strong>SAR 52.86</strong>
+        </div>
+
+        <div class="price-row">
+          <span>Convenience</span>
+          <strong>SAR 0</strong>
+        </div>
+
+        <div class="price-total">
+          <span>Total</span>
+          <strong>SAR 228.30</strong>
+        </div>
+      </aside>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- <script src="animation.js"></script> -->
+ <script>
+    gsap.from(".reveal", {
+  opacity: 0,
+  y: 60,
+  duration: 1.2,
+  ease: "expo.out",
+  stagger: 0.2
+});
+
+gsap.from(".divider-line", {
+  scaleX: 0,
+  transformOrigin: "left",
+  duration: 1,
+  delay: 0.8,
+  ease: "power3.out"
+});
+
+document.querySelectorAll(".cta-btn").forEach(btn => {
+  btn.addEventListener("mousemove", e => {
+    const x = e.offsetX - btn.clientWidth / 2;
+    const y = e.offsetY - btn.clientHeight / 2;
+    btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "translate(0,0)";
+  });
+});
+
+ </script>
+
+<script src="./main.js"></script>
+</body>
+</html>

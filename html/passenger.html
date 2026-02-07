@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Extras Selection</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="style.css"> -->
+ <style>
+    body {
+  font-family: 'Inter', sans-serif;
+  background: #f8fafc;
+}
+
+/* STEPPER */
+.stepper {
+  border-left: 3px solid #22c55e;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.step {
+  margin-bottom: 20px;
+  position: relative;
+}
+.step::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #22c55e;
+  border-radius: 50%;
+  position: absolute;
+  left: -29px;
+  top: 4px;
+}
+
+/* TABS */
+.extras-tabs {
+  display: flex;
+  gap: 12px;
+}
+.tab {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  background: #e5e7eb;
+}
+.tab.active {
+  background: #14532d;
+  color: white;
+}
+
+/* CONTENT */
+.extras-content {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 20px;
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.show {
+  display: block;
+}
+
+/* MEAL */
+.meal-options button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #f1f5f9;
+}
+
+/* SEAT */
+.seat-wrapper {
+  display: flex;
+  gap: 40px;
+}
+.plane {
+  width: 260px;
+  border: 1px solid #ddd;
+  border-radius: 120px;
+  padding: 20px;
+}
+.row-seat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.seat {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #aaa;
+}
+.seat.selected {
+  background: #22c55e;
+}
+
+/* TERMS */
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.check span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #22c55e;
+}
+
+/* ACCORDION */
+.accordion {
+  background: white;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+.accordion-header {
+  padding: 14px;
+  cursor: pointer;
+}
+.accordion-body {
+  display: none;
+  padding: 14px;
+}
+
+ </style>
+</head>
+<body>
+
+<div class="container-fluid px-4 py-4">
+
+  <!-- STEPPER -->
+  <div class="stepper">
+    <div class="step active">Passenger</div>
+    <div class="step active">Contact</div>
+    <div class="step active">Extras</div>
+  </div>
+
+  <!-- TABS -->
+  <div class="extras-tabs">
+    <button class="tab active" data-tab="baggage">Add Baggage +</button>
+    <button class="tab" data-tab="meal">Add Meal +</button>
+    <button class="tab" data-tab="seat">Seat Selection</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="extras-content">
+
+    <!-- BAGGAGE -->
+    <div class="tab-panel show" id="baggage">
+      <h5>Choose Extra Baggage</h5>
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label>Adult 1</label>
+          <select class="form-control">
+            <option>Baggage</option>
+            <option>+5 KG</option>
+            <option>+10 KG</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- MEAL -->
+    <div class="tab-panel" id="meal">
+      <h5>Select Meal</h5>
+      <div class="meal-options">
+        <button>Veg Meal</button>
+        <button>Non-Veg Meal</button>
+        <button>Snacks</button>
+      </div>
+    </div>
+
+    <!-- SEAT -->
+    <div class="tab-panel" id="seat">
+      <div class="seat-wrapper">
+        <div class="plane">
+          <div class="rows">
+            <!-- SAMPLE ROW -->
+            <div class="row-seat">
+              <span>25</span>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+              <div class="seat selected"></div>
+              <div class="seat"></div>
+              <div class="seat"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="seat-summary">
+          <h6>BLR-DEL (QP1811)</h6>
+          <p>Seat: <strong>25E</strong></p>
+          <p>Price: <strong>14.34</strong></p>
+          <button class="continue">Continue</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TERMS -->
+  <div class="terms">
+    <label class="check">
+      <input type="checkbox">
+      <span></span>
+      I agree to Terms & Conditions
+    </label>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="accordion">
+    <div class="accordion-header">Disclaimer <span>+</span></div>
+    <div class="accordion-body">
+      Passport must be valid for at least 6 months from date of travel.
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- <script src="app.js"></script> -->
+ <script>
+    // Tabs
+document.querySelectorAll(".tab").forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("show"));
+
+    tab.classList.add("active");
+    const panel = document.getElementById(tab.dataset.tab);
+    panel.classList.add("show");
+
+    gsap.from(panel, {opacity:0, y:30, duration:.6});
+  };
+});
+
+// Accordion
+const acc = document.querySelector(".accordion-header");
+const body = document.querySelector(".accordion-body");
+
+acc.onclick = () => {
+  body.style.display = body.style.display === "block" ? "none" : "block";
+  gsap.from(body, {height:0, opacity:0, duration:.4});
+};
+
+ </script>
+</body>
+</html>
